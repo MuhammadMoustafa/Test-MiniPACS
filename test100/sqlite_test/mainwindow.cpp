@@ -48,8 +48,6 @@ void MainWindow::on_btn_search_clicked()
         }
     }
 
-
-
 }
 
 void MainWindow::on_btn_insert_clicked()

@@ -20,24 +20,54 @@ Dao::Dao()
 void Dao::dao_createTable(QString& status){
 
     QSqlQuery query(db);
-    QString q = "CREATE TABLE IF NOT EXISTS employee("  \
+    QString q = "CREATE TABLE IF NOT EXISTS Patient("  \
                     "ID             INTEGER PRIMARY KEY," \
-                    "NAME           TEXT    NOT NULL," \
-                    "AGE            INT     NOT NULL," \
-                    "ADDRESS        TEXT);";
+                    "Name           TEXT    NOT NULL," \
+                    "Age            INT     NOT NULL," \
+                    "Address        TEXT);";
     query.prepare(q);
     if (!query.exec()){
         status += query.lastError().text();
     }
     else{
+       status += "Table created successfully ...";
+    }
+
+//    query.exec("PRAGMA foreign_keys = ON;");
+
+    q = "CREATE TABLE IF NOT EXISTS Image_Table ("
+        "Patient_ID INTEGER,"
+        "Filename TEXT, "
+        "Image_Data BLOB,"
+        "FOREIGN KEY (Patient_ID) REFERENCES Patient(ID),"
+        "PRIMARY KEY (Patient_ID, Filename) )";
+
+    query.prepare(q);
+
+    if (!query.exec()){
+       status += query.lastError().text();
+    }
+    else{
        status += "Table created successfully";
     }
+
+/*
+    query.prepare("CREATE TABLE IF NOT EXISTS Image_Table ( "
+                  "Patient_ID INTEGER"
+                  "Filename TEXT, "
+                  "Image_Data BLOB, "
+                  "FOREIGN KEY (Patient_ID) REFERENCES Patients(ID),"
+                  "PRIMARY KEY (Patient_ID, Filename)"
+                  ");");
+
+
+*/
 }
 
 void Dao::dao_insert(Person person, QString& status){
 
     QSqlQuery query(db);
-    query.prepare("INSERT INTO employee (ID, NAME, AGE, ADDRESS) "\
+    query.prepare("INSERT INTO Patient (ID, Name, Age, Address) "\
                    "VALUES (NULL, :name, :age, :address)");
 
     query.bindValue(":name", person.name);
@@ -55,7 +85,7 @@ void Dao::dao_insert(Person person, QString& status){
 QSqlQuery Dao::dao_select(QString& status){
 
     QSqlQuery query(db);
-    query.prepare("SELECT * FROM EMPLOYEE");
+    query.prepare("SELECT * FROM Patient");
     if (!query.exec()){
         status = query.lastError().text();
     }
@@ -76,7 +106,7 @@ QSqlQuery Dao::dao_select(int id, QString& status){
 
     QSqlQuery query;
 
-    query.prepare("SELECT * FROM EMPLOYEE where ID = :id");
+    query.prepare("SELECT * FROM Patient where ID = :id");
     query.bindValue(":id", id);
 
     if (!query.exec()){
@@ -99,7 +129,7 @@ QSqlQuery Dao::dao_select(int id, QString& status){
 void Dao::dao_delete(int id, QString& status, bool& queryIsExecuted){
 
     QSqlQuery query;
-    query.prepare("DELETE FROM employee WHERE ID = :id");
+    query.prepare("DELETE FROM Patient WHERE ID = :id");
     query.bindValue(":id", id);
     if (!query.exec()){
         status = query.lastError().text();
@@ -116,6 +146,24 @@ void Dao::dao_delete(int id, QString& status, bool& queryIsExecuted){
         queryIsExecuted = true;
     }
 
+}
+
+void Dao::dao_insert_image(Patient_Image image, QString& status){
+    QSqlQuery query;
+
+    query.prepare( "INSERT INTO Image_Table (Patient_ID, Filename, Image_Data) VALUES (:id, :filename, :imageData)" );
+
+    query.bindValue( ":id", image.id );
+    query.bindValue( ":filename", image.filename );
+    query.bindValue( ":imageData", image.image );
+
+    if( !query.exec() ){
+        status = "Error inserting image into table:" + query.lastError().text();
+    }
+
+    else{
+        status = "Image inserted successfully";
+    }
 
 }
 

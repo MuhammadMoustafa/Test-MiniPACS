@@ -15,10 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     dao.cpp \
-    person.cpp
+    person.cpp \
+    patient_image.cpp \
+    dialog.cpp
 
 HEADERS  += mainwindow.h \
     dao.h \
-    person.h
+    person.h \
+    patient_image.h \
+    dialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    dialog.ui

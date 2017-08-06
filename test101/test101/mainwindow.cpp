@@ -4,8 +4,10 @@
 #include <QtGui>
 #include <QtCore>
 #include <QStatusBar>
+#include <QFileDialog>
 #include <QtSql/QtSql>
 
+#include "dialog.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -51,6 +53,28 @@ void MainWindow::on_btn_insert_clicked()
 void MainWindow::on_btn_addImages_clicked()
 {
 
+    bool ok;
+    int id = ui->lnedt_addImage->text().toInt(&ok);
+
+    QString status;
+    QString filename =QFileDialog::getOpenFileName(this,
+                                                   tr("Open Image"), "/home", tr("Image Files (*.png *.jpg *.bmp)"));;
+
+    QFile file(filename);
+    if (!file.open(QIODevice::ReadOnly)) return;
+    QByteArray imgData = file.readAll();
+
+    id = ui->lnedt_age->text().toInt(&ok);
+
+    if (ok && id > 0){
+        Patient_Image image(id, filename, imgData);
+        dao.dao_insert_image(image, status);
+        ui->statusBar->showMessage(status);
+    }
+
+    else{
+        ui->statusBar->showMessage("Write a Valid ID");
+    }
 }
 
 void MainWindow::on_btn_select_clicked()
@@ -115,6 +139,10 @@ void MainWindow::on_btn_delete_clicked()
 
 void MainWindow::on_btn_showImage_clicked()
 {
+    Dialog dialog;
+    dialog.setModal(true);
+    dialog.exec();
+
 
 }
 
