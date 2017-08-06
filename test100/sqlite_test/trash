@@ -1,0 +1,92 @@
+
+
+sqlite3 *db;
+
+void create_table();
+void db_insert();
+/*
+void db_select(int);
+static int select_callback(void *unused, int count, char **data, char **columns);
+*/
+
+
+    /*
+    QStringList headers;
+    headers << "ID" <<"Name" << "Age" << "Address";
+    ui->tableWidget->setColumnCount(4);
+    ui->tableWidget->setHorizontalHeaderLabels(headers);
+    */
+
+
+
+
+    int rc = sqlite3_open("test.db", &db);
+    if( !ok ) {
+       ui->statusBar->showMessage("Can't open database", 1000);
+    } else {
+       ui->statusBar->showMessage("Opened database successfully\n",1000);
+       //create_table();
+       //db_insert();
+       //db_select(1);
+    }
+
+void create_table(){
+
+    const char* sql = "CREATE TABLE IF NOT EXISTS EMPLOYEE("  \
+                  "ID INT PRIMARY KEY     NOT NULL," \
+                  "NAME           TEXT    NOT NULL," \
+                  "AGE            INT     NOT NULL," \
+                  "ADDRESS        CHAR(50));";
+
+   sqlite3_exec(db, sql, NULL, NULL, NULL);
+}
+
+void db_insert(){
+
+    const char* sql = "INSERT INTO EMPLOYEE (ID,NAME,AGE,ADDRESS) "  \
+                  "VALUES (1, 'Mohamed', 32, 'ABBASIA'); ";
+    sqlite3_exec(db, sql, NULL, NULL, NULL);
+}
+
+
+/*
+void db_select(int id){
+
+    const char* sql = "SELECT * from COMPANY";
+    sqlite3_exec(db, sql, select_callback, NULL, NULL);
+}
+
+static int select_callback(void *unused, int count, char **data, char **columns)
+{
+
+    ui->tableWidget->setRowCount(0);
+    int idx;
+
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+    rowNumber = ui->tableWidget->rowCount() -1;
+    ui->tableWidget->setItem(rowNumber, 0, new QTableWidgetItem(name));
+    ui->tableWidget->setItem(rowNumber, 1, new QTableWidgetItem(QString::number(age)));
+    ui->tableWidget->setItem(rowNumber, 2, new QTableWidgetItem(address));
+
+    printf("There are %d column(s)\n", count);
+
+    for (idx = 0; idx < count; idx++) {
+        printf("The data in column \"%s\" is: %s\n", columns[idx], data[idx]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+*/
+
+
+/** iterate over the query
+
+QMap<QString,QVariant> map = query.boundValues();
+for(QMap<QString,QVariant>::iterator it = map.begin(); it!= map.end(); ++it)
+{
+    qDebug()<<it.key()<<" "<<map[it.key()]<<"\n";
+}
+
+**/
