@@ -1,0 +1,60 @@
+/*
+    QLabel label2("adsads");
+    QPixmap pixmap("4.png");
+    label2.setPixmap(pixmap);
+    label2.setMask(pixmap.mask());
+    label2.show();
+*/
+    /*
+    QLabel label;
+    label.setGeometry(0,0,100,100);
+    label.setText("sdfdsfdsg");
+    label.show();
+    label.
+    */
+    //scene = new QGraphicsScene(this);
+
+
+    //QPixmap outPixmap = QPixmap("4.png");
+    //outPixmap.loadFromData( "4.png" );
+
+    //QGraphicsPixmapItem item(outPixmap);
+    //scene->addPixmap(outPixmap);
+    //QLabel myLabel;
+    //myLabel.setPixmap( outPixmap );
+    //myLabel.show();
+
+    /*
+    QPixmap outPixmap("4.png");
+    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(outPixmap);
+    scene->addItem(item);
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView->show();
+
+    QPixmap outPixmap2("3.png");
+    QGraphicsPixmapItem* item2 = new QGraphicsPixmapItem(outPixmap2);
+
+    scene->addItem(item2);
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView->show();
+    */
+
+    /*
+    QImage image("4.png");
+    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+    scene->addItem(item);
+    //ui->graphicsView->setScene(scene);
+    ui->graphicsView->show();
+
+    QImage image2("3.png");
+    QGraphicsPixmapItem* item2 = new QGraphicsPixmapItem(QPixmap::fromImage(image2));
+    scene->addItem(item2);
+
+    ui->graphicsView->setScene(scene);
+
+    */
+
+    //ui->graphicsView->show();
+    //scene->addItem(&item);
+    //scene->addText("asdasfskfjlsajfsaf");
+    //ui->graphicsView->show();

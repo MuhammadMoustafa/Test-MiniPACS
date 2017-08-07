@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "dao.h"
+#include "dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +31,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Dao dao;
+    Dialog *dialog;
 };
 
 #endif // MAINWINDOW_H

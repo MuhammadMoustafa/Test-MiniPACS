@@ -27,3 +27,6 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     dialog.ui
+
+DISTFILES += \
+    trash

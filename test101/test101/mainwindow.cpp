@@ -140,30 +140,36 @@ void MainWindow::on_btn_delete_clicked()
 void MainWindow::on_btn_showImage_clicked()
 {
     QString status;
-    QByteArray img;
+    QVector<QByteArray> images;
     bool ok;
     int id = ui->lnedt_showImage->text().toInt(&ok);
 
     if(ok){
-        img = dao.dao_select_image(id, status);
+        images = dao.dao_select_image(id, status);
         ui->statusBar->showMessage(status);
-        QLabel *label = new QLabel("Hello Qt!");
-        label->setText("sasdasdkjadskj");
-        QPixmap pixmap(img);
-        label->setPixmap(pixmap);
-        //label->setMask(pixmap.mask());
-        label->show();
     }
 
     else{
         ui->statusBar->showMessage("ID must be a positive integer");
     }
 
+
+    //Dialog dialog; //= new Dialog(QByteArray img);
+    //dialog.setModal(true);
+    //dialog.exec();
+    dialog = new Dialog(images, this);
+    dialog->show();
     /*
-    Dialog dialog;
-    dialog.setModal(true);
-    dialog.exec();
-*/
+        QLabel *label = new QLabel();
+
+        label->setText("sasdasdkjadskj");
+        QPixmap pixmap = QPixmap();
+        pixmap.loadFromData( img );
+        //ui->lbl_address->setPixmap(pixmap);
+        label->setPixmap(pixmap);
+        label->setMask(pixmap.mask());
+        label->show();
+    */
 
 }
 

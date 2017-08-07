@@ -38,9 +38,9 @@ public:
     QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
     QPushButton *btn_addImages;
-    QLabel *label_2;
-    QLabel *label;
-    QLabel *label_3;
+    QLabel *lbl_age;
+    QLabel *lbl_name;
+    QLabel *lbl_address;
     QRadioButton *rdbtn_id;
     QRadioButton *rdbtn_name;
     QPushButton *btn_select;
@@ -83,23 +83,23 @@ public:
 
         gridLayout->addWidget(btn_addImages, 3, 0, 1, 2);
 
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setAlignment(Qt::AlignCenter);
+        lbl_age = new QLabel(centralWidget);
+        lbl_age->setObjectName(QStringLiteral("lbl_age"));
+        lbl_age->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_2, 1, 1, 1, 1);
+        gridLayout->addWidget(lbl_age, 1, 1, 1, 1);
 
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setAlignment(Qt::AlignCenter);
+        lbl_name = new QLabel(centralWidget);
+        lbl_name->setObjectName(QStringLiteral("lbl_name"));
+        lbl_name->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label, 0, 1, 1, 1);
+        gridLayout->addWidget(lbl_name, 0, 1, 1, 1);
 
-        label_3 = new QLabel(centralWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setAlignment(Qt::AlignCenter);
+        lbl_address = new QLabel(centralWidget);
+        lbl_address->setObjectName(QStringLiteral("lbl_address"));
+        lbl_address->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_3, 2, 1, 1, 1);
+        gridLayout->addWidget(lbl_address, 2, 1, 1, 1);
 
         rdbtn_id = new QRadioButton(centralWidget);
         rdbtn_id->setObjectName(QStringLiteral("rdbtn_id"));
@@ -198,9 +198,9 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         btn_addImages->setText(QApplication::translate("MainWindow", "Add Images By ID", 0));
-        label_2->setText(QApplication::translate("MainWindow", "Age", 0));
-        label->setText(QApplication::translate("MainWindow", "Name", 0));
-        label_3->setText(QApplication::translate("MainWindow", "Address", 0));
+        lbl_age->setText(QApplication::translate("MainWindow", "Age", 0));
+        lbl_name->setText(QApplication::translate("MainWindow", "Name", 0));
+        lbl_address->setText(QApplication::translate("MainWindow", "Address", 0));
         rdbtn_id->setText(QApplication::translate("MainWindow", "&ID", 0));
         rdbtn_name->setText(QApplication::translate("MainWindow", "&Name", 0));
         btn_select->setText(QApplication::translate("MainWindow", "Select", 0));

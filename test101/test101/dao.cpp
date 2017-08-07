@@ -33,8 +33,6 @@ void Dao::dao_createTable(QString& status){
        status += "Table created successfully ...";
     }
 
-//    query.exec("PRAGMA foreign_keys = ON;");
-
     q = "CREATE TABLE IF NOT EXISTS Image_Table ("
         "Patient_ID INTEGER,"
         "Filename TEXT, "
@@ -52,10 +50,6 @@ void Dao::dao_createTable(QString& status){
     }
 
 }
-
-/**
-  http://www.sqlite.org/cvstrac/wiki?p=BlobExample
- */
 
 void Dao::dao_insert(Person person, QString& status){
 
@@ -83,9 +77,8 @@ QSqlQuery Dao::dao_select(QString& status){
         status = query.lastError().text();
     }
     else{
-        if(query.size() == -1){
+        if(query.first()){
             status = "Query Executed Successfully";
-            //qDebug() << query.record.count();
         }
 
         else{
@@ -107,7 +100,7 @@ QSqlQuery Dao::dao_select(int id, QString& status){
     }
 
     else{
-        if (query.size() == -1){
+        if (query.first()){
             status = "Query Executed Successfully";
             //qDebug() << query.record.count();
         }
@@ -141,6 +134,10 @@ void Dao::dao_delete(int id, QString& status, bool& queryIsExecuted){
 
 }
 
+/**
+  http://www.sqlite.org/cvstrac/wiki?p=BlobExample
+ */
+
 void Dao::dao_insert_image(Patient_Image image, QString& status){
     QSqlQuery query;
 
@@ -160,9 +157,10 @@ void Dao::dao_insert_image(Patient_Image image, QString& status){
 
 }
 
-QByteArray Dao::dao_select_image(int id, QString &status){
+QVector<QByteArray> Dao::dao_select_image(int id, QString &status){
 
     QSqlQuery query;
+    QVector<QByteArray> outByteArray;
     query.prepare("SELECT Image_Data from Image_Table WHERE Patient_ID = :id");
     query.bindValue(":id", id);
 
@@ -170,12 +168,16 @@ QByteArray Dao::dao_select_image(int id, QString &status){
         status = "Error getting image from table" + query.lastError().text();
     }
     else{
-        status = "Image selected successfully";
+        if(query.first()){
+            status = "Images selected successfully";
+            do{
+                outByteArray.append( query.value(0).toByteArray() );
+            }while(query.next());
+        }
+        else{
+            status = "Database is empty";
+        }
     }
-
-    //return query.first();
-    query.first();
-    QByteArray outByteArray = query.value( 0 ).toByteArray();
     return  outByteArray;
 }
 
