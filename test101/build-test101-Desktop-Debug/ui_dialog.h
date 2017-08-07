@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 
@@ -24,7 +23,6 @@ class Ui_Dialog
 {
 public:
     QHBoxLayout *horizontalLayout;
-    QGraphicsView *graphicsView;
 
     void setupUi(QDialog *Dialog)
     {
@@ -33,11 +31,6 @@ public:
         Dialog->resize(1061, 818);
         horizontalLayout = new QHBoxLayout(Dialog);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        graphicsView = new QGraphicsView(Dialog);
-        graphicsView->setObjectName(QStringLiteral("graphicsView"));
-
-        horizontalLayout->addWidget(graphicsView);
-
 
         retranslateUi(Dialog);
 

@@ -18,6 +18,7 @@ public:
     QSqlQuery dao_select(int id, QString& status);
     void dao_delete(int id, QString& status, bool& queryIsExecuted);
     void dao_insert_image(Patient_Image image, QString& status);
+    QByteArray dao_select_image(int id, QString& status);
     ~Dao();
 
 private:

@@ -20,7 +20,7 @@ public:
 
 private:
     Ui::Dialog *ui;
-    QGraphicsScene *scene;
+    //QGraphicsScene *scene;
 };
 
 #endif // DIALOG_H

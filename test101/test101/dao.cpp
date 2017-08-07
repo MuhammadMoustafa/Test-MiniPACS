@@ -51,18 +51,11 @@ void Dao::dao_createTable(QString& status){
        status += "Table created successfully";
     }
 
-/*
-    query.prepare("CREATE TABLE IF NOT EXISTS Image_Table ( "
-                  "Patient_ID INTEGER"
-                  "Filename TEXT, "
-                  "Image_Data BLOB, "
-                  "FOREIGN KEY (Patient_ID) REFERENCES Patients(ID),"
-                  "PRIMARY KEY (Patient_ID, Filename)"
-                  ");");
-
-
-*/
 }
+
+/**
+  http://www.sqlite.org/cvstrac/wiki?p=BlobExample
+ */
 
 void Dao::dao_insert(Person person, QString& status){
 
@@ -165,6 +158,25 @@ void Dao::dao_insert_image(Patient_Image image, QString& status){
         status = "Image inserted successfully";
     }
 
+}
+
+QByteArray Dao::dao_select_image(int id, QString &status){
+
+    QSqlQuery query;
+    query.prepare("SELECT Image_Data from Image_Table WHERE Patient_ID = :id");
+    query.bindValue(":id", id);
+
+    if( !query.exec()){
+        status = "Error getting image from table" + query.lastError().text();
+    }
+    else{
+        status = "Image selected successfully";
+    }
+
+    //return query.first();
+    query.first();
+    QByteArray outByteArray = query.value( 0 ).toByteArray();
+    return  outByteArray;
 }
 
 Dao::~Dao(){

@@ -6,6 +6,8 @@
 #include <QStatusBar>
 #include <QFileDialog>
 #include <QtSql/QtSql>
+#include <QtWidgets>
+#include <QLabel>
 
 #include "dialog.h"
 MainWindow::MainWindow(QWidget *parent) :
@@ -63,8 +65,6 @@ void MainWindow::on_btn_addImages_clicked()
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly)) return;
     QByteArray imgData = file.readAll();
-
-    id = ui->lnedt_age->text().toInt(&ok);
 
     if (ok && id > 0){
         Patient_Image image(id, filename, imgData);
@@ -139,10 +139,31 @@ void MainWindow::on_btn_delete_clicked()
 
 void MainWindow::on_btn_showImage_clicked()
 {
+    QString status;
+    QByteArray img;
+    bool ok;
+    int id = ui->lnedt_showImage->text().toInt(&ok);
+
+    if(ok){
+        img = dao.dao_select_image(id, status);
+        ui->statusBar->showMessage(status);
+        QLabel *label = new QLabel("Hello Qt!");
+        label->setText("sasdasdkjadskj");
+        QPixmap pixmap(img);
+        label->setPixmap(pixmap);
+        //label->setMask(pixmap.mask());
+        label->show();
+    }
+
+    else{
+        ui->statusBar->showMessage("ID must be a positive integer");
+    }
+
+    /*
     Dialog dialog;
     dialog.setModal(true);
     dialog.exec();
-
+*/
 
 }
 
