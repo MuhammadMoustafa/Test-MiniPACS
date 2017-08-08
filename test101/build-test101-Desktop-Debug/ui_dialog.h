@@ -28,7 +28,12 @@ public:
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName(QStringLiteral("Dialog"));
-        Dialog->resize(1061, 818);
+        Dialog->resize(1500, 900);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Dialog->sizePolicy().hasHeightForWidth());
+        Dialog->setSizePolicy(sizePolicy);
         horizontalLayout = new QHBoxLayout(Dialog);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
 

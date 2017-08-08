@@ -72,6 +72,9 @@
           </property>
          </widget>
         </item>
+        <item row="4" column="2" rowspan="2">
+         <widget class="QLineEdit" name="lnedt_select"/>
+        </item>
         <item row="5" column="3">
          <widget class="QRadioButton" name="rdbtn_name">
           <property name="text">
@@ -86,22 +89,15 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="2" rowspan="2">
-         <widget class="QLineEdit" name="lnedt_select"/>
-        </item>
-        <item row="6" column="0" colspan="2">
-         <widget class="QPushButton" name="btn_delete">
-          <property name="text">
-           <string>Delete By ID</string>
-          </property>
-         </widget>
-        </item>
         <item row="7" column="0" colspan="2">
          <widget class="QPushButton" name="btn_showImage">
           <property name="text">
            <string>Show Image By ID</string>
           </property>
          </widget>
+        </item>
+        <item row="7" column="2" colspan="2">
+         <widget class="QLineEdit" name="lnedt_showImage"/>
         </item>
         <item row="0" column="0" rowspan="3">
          <widget class="QPushButton" name="btn_insert">
@@ -110,23 +106,27 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="2" colspan="2">
-         <widget class="QLineEdit" name="lnedt_delete"/>
-        </item>
-        <item row="7" column="2" colspan="2">
-         <widget class="QLineEdit" name="lnedt_showImage"/>
-        </item>
         <item row="2" column="2" colspan="2">
          <widget class="QLineEdit" name="lnedt_address"/>
-        </item>
-        <item row="3" column="2" colspan="2">
-         <widget class="QLineEdit" name="lnedt_addImage"/>
         </item>
         <item row="1" column="2" colspan="2">
          <widget class="QLineEdit" name="lnedt_age"/>
         </item>
+        <item row="3" column="2" colspan="2">
+         <widget class="QLineEdit" name="lnedt_addImage"/>
+        </item>
         <item row="0" column="2" colspan="2">
          <widget class="QLineEdit" name="lnedt_name"/>
+        </item>
+        <item row="6" column="0" colspan="2">
+         <widget class="QPushButton" name="btn_delete">
+          <property name="text">
+           <string>Delete By ID</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="2" colspan="2">
+         <widget class="QLineEdit" name="lnedt_delete"/>
         </item>
        </layout>
       </item>
@@ -158,6 +158,23 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lnedt_name</tabstop>
+  <tabstop>lnedt_age</tabstop>
+  <tabstop>lnedt_address</tabstop>
+  <tabstop>btn_insert</tabstop>
+  <tabstop>lnedt_addImage</tabstop>
+  <tabstop>btn_addImages</tabstop>
+  <tabstop>lnedt_select</tabstop>
+  <tabstop>rdbtn_id</tabstop>
+  <tabstop>rdbtn_name</tabstop>
+  <tabstop>btn_select</tabstop>
+  <tabstop>lnedt_delete</tabstop>
+  <tabstop>btn_delete</tabstop>
+  <tabstop>lnedt_showImage</tabstop>
+  <tabstop>btn_showImage</tabstop>
+  <tabstop>tableView</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

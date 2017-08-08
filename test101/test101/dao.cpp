@@ -73,6 +73,12 @@ QSqlQuery Dao::dao_select(QString& status){
 
     QSqlQuery query(db);
     query.prepare("SELECT * FROM Patient");
+    /**
+    Not a good practise .... Select * return all fileds and records whithout a specific order
+    use -> SELECT column_name1, column_name2, column_name3 FROM table_name <- instead
+
+    writing all reserved words in sql as UPPERCASE is a good practise although sql is case insensitive.
+    */
     if (!query.exec()){
         status = query.lastError().text();
     }
@@ -111,6 +117,28 @@ QSqlQuery Dao::dao_select(int id, QString& status){
     }
     return query;
 }
+QSqlQuery Dao::dao_select(QString name, QString& status){
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM Patient where Name like :name");
+    query.bindValue(":name", '%' + name + '%');
+
+    if (!query.exec()){
+        status = query.lastError().text();
+    }
+
+    else{
+        if (query.first()){
+            status = "Query Executed Successfully";
+        }
+
+        else{
+            status = "No Such Name";
+        }
+    }
+    return query;
+}
+
 
 void Dao::dao_delete(int id, QString& status, bool& queryIsExecuted){
 
@@ -130,6 +158,16 @@ void Dao::dao_delete(int id, QString& status, bool& queryIsExecuted){
     else{
         status = "Record Deleted Successfully";
         queryIsExecuted = true;
+
+        query.prepare("DELETE FROM Image_Table WHERE Patient_ID = :id");
+        query.bindValue(":id", id);
+
+        if (!query.exec()){
+            status += query.lastError().text();
+        }
+        else{
+            status += "and images";
+        }
     }
 
 }

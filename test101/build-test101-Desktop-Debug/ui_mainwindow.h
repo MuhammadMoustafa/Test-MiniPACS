@@ -42,18 +42,18 @@ public:
     QLabel *lbl_name;
     QLabel *lbl_address;
     QRadioButton *rdbtn_id;
+    QLineEdit *lnedt_select;
     QRadioButton *rdbtn_name;
     QPushButton *btn_select;
-    QLineEdit *lnedt_select;
-    QPushButton *btn_delete;
     QPushButton *btn_showImage;
-    QPushButton *btn_insert;
-    QLineEdit *lnedt_delete;
     QLineEdit *lnedt_showImage;
+    QPushButton *btn_insert;
     QLineEdit *lnedt_address;
-    QLineEdit *lnedt_addImage;
     QLineEdit *lnedt_age;
+    QLineEdit *lnedt_addImage;
     QLineEdit *lnedt_name;
+    QPushButton *btn_delete;
+    QLineEdit *lnedt_delete;
     QTableView *tableView;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -106,6 +106,11 @@ public:
 
         gridLayout->addWidget(rdbtn_id, 4, 3, 1, 1);
 
+        lnedt_select = new QLineEdit(centralWidget);
+        lnedt_select->setObjectName(QStringLiteral("lnedt_select"));
+
+        gridLayout->addWidget(lnedt_select, 4, 2, 2, 1);
+
         rdbtn_name = new QRadioButton(centralWidget);
         rdbtn_name->setObjectName(QStringLiteral("rdbtn_name"));
 
@@ -116,55 +121,50 @@ public:
 
         gridLayout->addWidget(btn_select, 4, 0, 2, 2);
 
-        lnedt_select = new QLineEdit(centralWidget);
-        lnedt_select->setObjectName(QStringLiteral("lnedt_select"));
-
-        gridLayout->addWidget(lnedt_select, 4, 2, 2, 1);
-
-        btn_delete = new QPushButton(centralWidget);
-        btn_delete->setObjectName(QStringLiteral("btn_delete"));
-
-        gridLayout->addWidget(btn_delete, 6, 0, 1, 2);
-
         btn_showImage = new QPushButton(centralWidget);
         btn_showImage->setObjectName(QStringLiteral("btn_showImage"));
 
         gridLayout->addWidget(btn_showImage, 7, 0, 1, 2);
-
-        btn_insert = new QPushButton(centralWidget);
-        btn_insert->setObjectName(QStringLiteral("btn_insert"));
-
-        gridLayout->addWidget(btn_insert, 0, 0, 3, 1);
-
-        lnedt_delete = new QLineEdit(centralWidget);
-        lnedt_delete->setObjectName(QStringLiteral("lnedt_delete"));
-
-        gridLayout->addWidget(lnedt_delete, 6, 2, 1, 2);
 
         lnedt_showImage = new QLineEdit(centralWidget);
         lnedt_showImage->setObjectName(QStringLiteral("lnedt_showImage"));
 
         gridLayout->addWidget(lnedt_showImage, 7, 2, 1, 2);
 
+        btn_insert = new QPushButton(centralWidget);
+        btn_insert->setObjectName(QStringLiteral("btn_insert"));
+
+        gridLayout->addWidget(btn_insert, 0, 0, 3, 1);
+
         lnedt_address = new QLineEdit(centralWidget);
         lnedt_address->setObjectName(QStringLiteral("lnedt_address"));
 
         gridLayout->addWidget(lnedt_address, 2, 2, 1, 2);
-
-        lnedt_addImage = new QLineEdit(centralWidget);
-        lnedt_addImage->setObjectName(QStringLiteral("lnedt_addImage"));
-
-        gridLayout->addWidget(lnedt_addImage, 3, 2, 1, 2);
 
         lnedt_age = new QLineEdit(centralWidget);
         lnedt_age->setObjectName(QStringLiteral("lnedt_age"));
 
         gridLayout->addWidget(lnedt_age, 1, 2, 1, 2);
 
+        lnedt_addImage = new QLineEdit(centralWidget);
+        lnedt_addImage->setObjectName(QStringLiteral("lnedt_addImage"));
+
+        gridLayout->addWidget(lnedt_addImage, 3, 2, 1, 2);
+
         lnedt_name = new QLineEdit(centralWidget);
         lnedt_name->setObjectName(QStringLiteral("lnedt_name"));
 
         gridLayout->addWidget(lnedt_name, 0, 2, 1, 2);
+
+        btn_delete = new QPushButton(centralWidget);
+        btn_delete->setObjectName(QStringLiteral("btn_delete"));
+
+        gridLayout->addWidget(btn_delete, 6, 0, 1, 2);
+
+        lnedt_delete = new QLineEdit(centralWidget);
+        lnedt_delete->setObjectName(QStringLiteral("lnedt_delete"));
+
+        gridLayout->addWidget(lnedt_delete, 6, 2, 1, 2);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -188,6 +188,20 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+        QWidget::setTabOrder(lnedt_name, lnedt_age);
+        QWidget::setTabOrder(lnedt_age, lnedt_address);
+        QWidget::setTabOrder(lnedt_address, btn_insert);
+        QWidget::setTabOrder(btn_insert, lnedt_addImage);
+        QWidget::setTabOrder(lnedt_addImage, btn_addImages);
+        QWidget::setTabOrder(btn_addImages, lnedt_select);
+        QWidget::setTabOrder(lnedt_select, rdbtn_id);
+        QWidget::setTabOrder(rdbtn_id, rdbtn_name);
+        QWidget::setTabOrder(rdbtn_name, btn_select);
+        QWidget::setTabOrder(btn_select, lnedt_delete);
+        QWidget::setTabOrder(lnedt_delete, btn_delete);
+        QWidget::setTabOrder(btn_delete, lnedt_showImage);
+        QWidget::setTabOrder(lnedt_showImage, btn_showImage);
+        QWidget::setTabOrder(btn_showImage, tableView);
 
         retranslateUi(MainWindow);
 
@@ -204,9 +218,9 @@ public:
         rdbtn_id->setText(QApplication::translate("MainWindow", "&ID", 0));
         rdbtn_name->setText(QApplication::translate("MainWindow", "&Name", 0));
         btn_select->setText(QApplication::translate("MainWindow", "Select", 0));
-        btn_delete->setText(QApplication::translate("MainWindow", "Delete By ID", 0));
         btn_showImage->setText(QApplication::translate("MainWindow", "Show Image By ID", 0));
         btn_insert->setText(QApplication::translate("MainWindow", "Insert", 0));
+        btn_delete->setText(QApplication::translate("MainWindow", "Delete By ID", 0));
     } // retranslateUi
 
 };

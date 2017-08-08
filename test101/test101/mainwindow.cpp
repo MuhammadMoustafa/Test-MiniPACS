@@ -59,16 +59,30 @@ void MainWindow::on_btn_addImages_clicked()
     int id = ui->lnedt_addImage->text().toInt(&ok);
 
     QString status;
-    QString filename =QFileDialog::getOpenFileName(this,
-                                                   tr("Open Image"), "/home", tr("Image Files (*.png *.jpg *.bmp)"));;
+    QStringList filenames =QFileDialog::getOpenFileNames(this,
+                                                   tr("Open Image"), "./", tr("Image Files (*.png *.jpg *.bmp)"));;
 
-    QFile file(filename);
-    if (!file.open(QIODevice::ReadOnly)) return;
-    QByteArray imgData = file.readAll();
+
+    //if (!file.open(QIODevice::ReadOnly)) return;
+    QByteArray imgData; //= file.readAll();
 
     if (ok && id > 0){
-        Patient_Image image(id, filename, imgData);
-        dao.dao_insert_image(image, status);
+        for(int i = 0; i< filenames.length(); i++){
+            QFile file(filenames.at(i));
+
+            if (file.open(QIODevice::ReadOnly)){
+                imgData = file.readAll();
+                Patient_Image image(id, filenames.at(i), imgData);
+                dao.dao_insert_image(image, status);
+                /**
+                what if one image faild to open
+                statusBar Messages need review
+                */
+            }
+            else {
+                ui->statusBar->showMessage("Error Loading Images");
+            }
+        }
         ui->statusBar->showMessage(status);
     }
 
@@ -81,30 +95,45 @@ void MainWindow::on_btn_select_clicked()
 {
     QSqlQueryModel *model = new QSqlQueryModel();
     QSqlQuery query;
-    QString searchID = ui->lnedt_select->text();
+    QString search = ui->lnedt_select->text();
     QString status;
 
-    if(searchID == ""){
-        query = dao.dao_select(status);
+    if(ui->rdbtn_name->isChecked()){
+        if(search == ""){
+            query = dao.dao_select(status);
+        }
+
+        else{
+            query = dao.dao_select(search, status);
+        }
         model->setQuery(query);
         ui->tableView->setModel(model);
         ui->statusBar->showMessage(status);
     }
 
     else{
-        bool ok;
-        int id = searchID.toInt(&ok);
-        if(ok){
-            query = dao.dao_select(id, status);
+        if(search == ""){
+            query = dao.dao_select(status);
             model->setQuery(query);
             ui->tableView->setModel(model);
             ui->statusBar->showMessage(status);
         }
+
         else{
-            ui->statusBar->showMessage("ID must be a positive integer and cannot be empty");
+            bool ok;
+            int id = search.toInt(&ok);
+            if(ok){
+                query = dao.dao_select(id, status);
+                model->setQuery(query);
+                ui->tableView->setModel(model);
+                ui->statusBar->showMessage(status);
+            }
+            else{
+                ui->statusBar->showMessage("ID must be a positive integer and cannot be empty");
+            }
         }
     }
-    //delete model;
+//delete model;
 }
 
 void MainWindow::on_btn_delete_clicked()
@@ -153,23 +182,11 @@ void MainWindow::on_btn_showImage_clicked()
         ui->statusBar->showMessage("ID must be a positive integer");
     }
 
-
-    //Dialog dialog; //= new Dialog(QByteArray img);
+    //Dialog dialog;
     //dialog.setModal(true);
     //dialog.exec();
     dialog = new Dialog(images, this);
     dialog->show();
-    /*
-        QLabel *label = new QLabel();
-
-        label->setText("sasdasdkjadskj");
-        QPixmap pixmap = QPixmap();
-        pixmap.loadFromData( img );
-        //ui->lbl_address->setPixmap(pixmap);
-        label->setPixmap(pixmap);
-        label->setMask(pixmap.mask());
-        label->show();
-    */
 
 }
 
