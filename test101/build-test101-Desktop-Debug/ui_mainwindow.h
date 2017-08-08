@@ -47,13 +47,15 @@ public:
     QPushButton *btn_select;
     QPushButton *btn_showImage;
     QLineEdit *lnedt_showImage;
-    QPushButton *btn_insert;
     QLineEdit *lnedt_address;
     QLineEdit *lnedt_age;
     QLineEdit *lnedt_addImage;
     QLineEdit *lnedt_name;
     QPushButton *btn_delete;
     QLineEdit *lnedt_delete;
+    QPushButton *btn_insert;
+    QLabel *lbl_time;
+    QLabel *lbl_date;
     QTableView *tableView;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -131,11 +133,6 @@ public:
 
         gridLayout->addWidget(lnedt_showImage, 7, 2, 1, 2);
 
-        btn_insert = new QPushButton(centralWidget);
-        btn_insert->setObjectName(QStringLiteral("btn_insert"));
-
-        gridLayout->addWidget(btn_insert, 0, 0, 3, 1);
-
         lnedt_address = new QLineEdit(centralWidget);
         lnedt_address->setObjectName(QStringLiteral("lnedt_address"));
 
@@ -165,6 +162,21 @@ public:
         lnedt_delete->setObjectName(QStringLiteral("lnedt_delete"));
 
         gridLayout->addWidget(lnedt_delete, 6, 2, 1, 2);
+
+        btn_insert = new QPushButton(centralWidget);
+        btn_insert->setObjectName(QStringLiteral("btn_insert"));
+
+        gridLayout->addWidget(btn_insert, 2, 0, 1, 1);
+
+        lbl_time = new QLabel(centralWidget);
+        lbl_time->setObjectName(QStringLiteral("lbl_time"));
+
+        gridLayout->addWidget(lbl_time, 1, 0, 1, 1);
+
+        lbl_date = new QLabel(centralWidget);
+        lbl_date->setObjectName(QStringLiteral("lbl_date"));
+
+        gridLayout->addWidget(lbl_date, 0, 0, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -219,8 +231,10 @@ public:
         rdbtn_name->setText(QApplication::translate("MainWindow", "&Name", 0));
         btn_select->setText(QApplication::translate("MainWindow", "Select", 0));
         btn_showImage->setText(QApplication::translate("MainWindow", "Show Image By ID", 0));
-        btn_insert->setText(QApplication::translate("MainWindow", "Insert", 0));
         btn_delete->setText(QApplication::translate("MainWindow", "Delete By ID", 0));
+        btn_insert->setText(QApplication::translate("MainWindow", "Insert", 0));
+        lbl_time->setText(QString());
+        lbl_date->setText(QString());
     } // retranslateUi
 
 };

@@ -99,13 +99,6 @@
         <item row="7" column="2" colspan="2">
          <widget class="QLineEdit" name="lnedt_showImage"/>
         </item>
-        <item row="0" column="0" rowspan="3">
-         <widget class="QPushButton" name="btn_insert">
-          <property name="text">
-           <string>Insert</string>
-          </property>
-         </widget>
-        </item>
         <item row="2" column="2" colspan="2">
          <widget class="QLineEdit" name="lnedt_address"/>
         </item>
@@ -127,6 +120,27 @@
         </item>
         <item row="6" column="2" colspan="2">
          <widget class="QLineEdit" name="lnedt_delete"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="btn_insert">
+          <property name="text">
+           <string>Insert</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lbl_time">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="lbl_date">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

@@ -16,6 +16,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->lbl_date->setText(QDate::currentDate().toString("dd:MM:yyyy"));
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
+    showTime();
+    timer->start(1000);
+
     QString status;
     status = dao.status;
 
@@ -23,6 +30,31 @@ MainWindow::MainWindow(QWidget *parent) :
         dao.dao_createTable(status);
         ui->statusBar->showMessage(status);
     }
+
+    /*
+    QString date = QDate::currentDate().toString("yyyyMMdd");
+    QString time = QTime::currentTime().toString("hhmmss");
+    int i = date.toInt();
+    int j = time.toInt();
+    QString dateTime = date + time;
+
+    bool ok;
+    int iii = time.toInt(&ok,10);
+    qDebug() << ok;
+    qDebug() << dateTime << endl;
+    qDebug() << date << endl;
+    qDebug() << time << endl;
+    qDebug() << "5263142";
+    */
+}
+
+void MainWindow::showTime()
+{
+    QString text = QTime::currentTime().toString("hh:mm:ss");
+    //if ((time.second() % 2) == 0)
+    //    text[2] = ' ';
+
+    ui->lbl_time->setText(text);
 }
 
 void MainWindow::on_btn_insert_clicked()

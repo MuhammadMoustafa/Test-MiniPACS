@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "dao.h"
 #include "dialog.h"
+#include "QtGui"
+#include "QtCore"
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +29,8 @@ private slots:
     void on_btn_delete_clicked();
 
     void on_btn_showImage_clicked();
+
+    void showTime();
 
 private:
     Ui::MainWindow *ui;
