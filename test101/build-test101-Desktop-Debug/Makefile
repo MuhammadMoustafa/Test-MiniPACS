@@ -358,6 +358,7 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../test101/dao.h \
 		../test101/person.h \
 		../test101/patient_image.h \
+		../test101/dialog.h \
 		../test101/mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/muhammad/Git-repos/test2/test101/test101 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../test101/mainwindow.h -o moc_mainwindow.cpp
 
@@ -388,15 +389,16 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 main.o: ../test101/main.cpp ../test101/mainwindow.h \
 		../test101/dao.h \
 		../test101/person.h \
-		../test101/patient_image.h
+		../test101/patient_image.h \
+		../test101/dialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../test101/main.cpp
 
 mainwindow.o: ../test101/mainwindow.cpp ../test101/mainwindow.h \
 		../test101/dao.h \
 		../test101/person.h \
 		../test101/patient_image.h \
-		ui_mainwindow.h \
-		../test101/dialog.h
+		../test101/dialog.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../test101/mainwindow.cpp
 
 dao.o: ../test101/dao.cpp ../test101/dao.h \
