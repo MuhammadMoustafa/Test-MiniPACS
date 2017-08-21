@@ -165,6 +165,9 @@ void MainWindow::on_btn_select_clicked()
             }
         }
     }
+    ui->tableView->showGrid();
+    //ui->tableView->setDragDropMode(true);
+
 //delete model;
 }
 
