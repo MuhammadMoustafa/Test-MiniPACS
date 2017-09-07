@@ -7,8 +7,8 @@ class Dao
 {
 public:
     Dao();
-   // Dao(QString databasename = "");
-    bool isUser(Account account);
+    Dao(QString databasename);
+    bool isUser(Account& account, QString& status);
 
 private:
     QSqlDatabase db;

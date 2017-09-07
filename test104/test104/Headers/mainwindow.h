@@ -18,13 +18,16 @@ public:
 
 private slots:
     void on_btn_login_clicked();
+    void showTime();
 
 protected:
-    //Dao dao;
+    Dao* dao;
 
 private:
     Ui::MainWindow *ui;
-    Dao dao;
+    QString status;
+    Account currentuser;
+    bool isLogged;
 };
 
 #endif // MAINWINDOW_H
