@@ -30,7 +30,8 @@ SOURCES += \
     Sources/patient.cpp \
     Sources/visit.cpp \
     Sources/image.cpp \
-    Sources/account.cpp
+    Sources/account.cpp \
+    Sources/newuserwindow.cpp
 
 
 HEADERS += \
@@ -40,7 +41,9 @@ HEADERS += \
     Headers/patient.h \
     Headers/image.h \
     Headers/visit.h \
-    Headers/account.h
+    Headers/account.h \
+    Headers/newuserwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    Forms/newuserwindow.ui

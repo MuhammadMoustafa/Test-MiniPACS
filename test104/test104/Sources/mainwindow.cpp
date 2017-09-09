@@ -54,10 +54,21 @@ void MainWindow::on_btn_login_clicked()
         ui->btn_login->setText("login");
         ui->wdgt_userpanel->hide();
         status = "logout";
+        wndw_newuser->close();
+        delete wndw_newuser;
     }
 
     ui->statusBar->showMessage(status);
 }
+
+
+
+void MainWindow::on_btn_newuser_clicked()
+{
+    wndw_newuser = new NewUserWindow(this);
+    wndw_newuser->show();
+}
+
 
 
 MainWindow::~MainWindow()
