@@ -31,7 +31,8 @@ SOURCES += \
     Sources/visit.cpp \
     Sources/image.cpp \
     Sources/account.cpp \
-    Sources/newuserwindow.cpp
+    Sources/newuserwindow.cpp \
+    Sources/existinguserwindow.cpp
 
 
 HEADERS += \
@@ -42,8 +43,10 @@ HEADERS += \
     Headers/image.h \
     Headers/visit.h \
     Headers/account.h \
-    Headers/newuserwindow.h
+    Headers/newuserwindow.h \
+    Headers/existinguserwindow.h
 
 FORMS += \
         mainwindow.ui \
-    Forms/newuserwindow.ui
+    Forms/newuserwindow.ui \
+    Forms/existinguserwindow.ui

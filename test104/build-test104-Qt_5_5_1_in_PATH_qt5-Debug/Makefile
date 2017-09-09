@@ -55,8 +55,10 @@ SOURCES       = ../test104/Sources/dao.cpp \
 		../test104/Sources/visit.cpp \
 		../test104/Sources/image.cpp \
 		../test104/Sources/account.cpp \
-		../test104/Sources/newuserwindow.cpp moc_mainwindow.cpp \
-		moc_newuserwindow.cpp
+		../test104/Sources/newuserwindow.cpp \
+		../test104/Sources/existinguserwindow.cpp moc_mainwindow.cpp \
+		moc_newuserwindow.cpp \
+		moc_existinguserwindow.cpp
 OBJECTS       = dao.o \
 		main.o \
 		mainwindow.o \
@@ -65,8 +67,10 @@ OBJECTS       = dao.o \
 		image.o \
 		account.o \
 		newuserwindow.o \
+		existinguserwindow.o \
 		moc_mainwindow.o \
-		moc_newuserwindow.o
+		moc_newuserwindow.o \
+		moc_existinguserwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -142,14 +146,16 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../test104/Headers/image.h \
 		../test104/Headers/visit.h \
 		../test104/Headers/account.h \
-		../test104/Headers/newuserwindow.h ../test104/Sources/dao.cpp \
+		../test104/Headers/newuserwindow.h \
+		../test104/Headers/existinguserwindow.h ../test104/Sources/dao.cpp \
 		../test104/Sources/main.cpp \
 		../test104/Sources/mainwindow.cpp \
 		../test104/Sources/patient.cpp \
 		../test104/Sources/visit.cpp \
 		../test104/Sources/image.cpp \
 		../test104/Sources/account.cpp \
-		../test104/Sources/newuserwindow.cpp
+		../test104/Sources/newuserwindow.cpp \
+		../test104/Sources/existinguserwindow.cpp
 QMAKE_TARGET  = test104
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = test104
@@ -177,7 +183,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_newuserwindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_newuserwindow.h ui_existinguserwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../test104/test104.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -341,9 +347,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../test104/Headers/mainwindow.h ../test104/Headers/dao.h ../test104/Headers/dao.h ../test104/Headers/patient.h ../test104/Headers/image.h ../test104/Headers/visit.h ../test104/Headers/account.h ../test104/Headers/newuserwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../test104/Sources/dao.cpp ../test104/Sources/main.cpp ../test104/Sources/mainwindow.cpp ../test104/Sources/patient.cpp ../test104/Sources/visit.cpp ../test104/Sources/image.cpp ../test104/Sources/account.cpp ../test104/Sources/newuserwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../test104/mainwindow.ui ../test104/Forms/newuserwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../test104/Headers/mainwindow.h ../test104/Headers/dao.h ../test104/Headers/dao.h ../test104/Headers/patient.h ../test104/Headers/image.h ../test104/Headers/visit.h ../test104/Headers/account.h ../test104/Headers/newuserwindow.h ../test104/Headers/existinguserwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../test104/Sources/dao.cpp ../test104/Sources/main.cpp ../test104/Sources/mainwindow.cpp ../test104/Sources/patient.cpp ../test104/Sources/visit.cpp ../test104/Sources/image.cpp ../test104/Sources/account.cpp ../test104/Sources/newuserwindow.cpp ../test104/Sources/existinguserwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../test104/mainwindow.ui ../test104/Forms/newuserwindow.ui ../test104/Forms/existinguserwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -366,27 +372,46 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_newuserwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_newuserwindow.cpp moc_existinguserwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_newuserwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_newuserwindow.cpp moc_existinguserwindow.cpp
 moc_mainwindow.cpp: ../test104/Headers/dao.h \
 		../test104/Headers/account.h \
+		../test104/Headers/newuserwindow.h \
+		../test104/Headers/mainwindow.h \
+		../test104/Headers/existinguserwindow.h \
 		../test104/Headers/mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/muhammad/Git-repos/test2/test104/test104 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../test104/Headers/mainwindow.h -o moc_mainwindow.cpp
 
-moc_newuserwindow.cpp: ../test104/Headers/newuserwindow.h
+moc_newuserwindow.cpp: ../test104/Headers/mainwindow.h \
+		../test104/Headers/dao.h \
+		../test104/Headers/account.h \
+		../test104/Headers/newuserwindow.h \
+		../test104/Headers/existinguserwindow.h \
+		../test104/Headers/newuserwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/muhammad/Git-repos/test2/test104/test104 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../test104/Headers/newuserwindow.h -o moc_newuserwindow.cpp
+
+moc_existinguserwindow.cpp: ../test104/Headers/mainwindow.h \
+		../test104/Headers/dao.h \
+		../test104/Headers/account.h \
+		../test104/Headers/newuserwindow.h \
+		../test104/Headers/existinguserwindow.h \
+		../test104/Headers/existinguserwindow.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/muhammad/Git-repos/test2/test104/test104 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../test104/Headers/existinguserwindow.h -o moc_existinguserwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_newuserwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_newuserwindow.h ui_existinguserwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_newuserwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_newuserwindow.h ui_existinguserwindow.h
 ui_mainwindow.h: ../test104/mainwindow.ui
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../test104/mainwindow.ui -o ui_mainwindow.h
 
 ui_newuserwindow.h: ../test104/Forms/newuserwindow.ui
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../test104/Forms/newuserwindow.ui -o ui_newuserwindow.h
+
+ui_existinguserwindow.h: ../test104/Forms/existinguserwindow.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../test104/Forms/existinguserwindow.ui -o ui_existinguserwindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -404,13 +429,16 @@ dao.o: ../test104/Sources/dao.cpp ../test104/Headers/dao.h \
 
 main.o: ../test104/Sources/main.cpp ../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
-		../test104/Headers/account.h
+		../test104/Headers/account.h \
+		../test104/Headers/newuserwindow.h \
+		../test104/Headers/existinguserwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../test104/Sources/main.cpp
 
 mainwindow.o: ../test104/Sources/mainwindow.cpp ../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
 		../test104/Headers/account.h \
 		../test104/Headers/newuserwindow.h \
+		../test104/Headers/existinguserwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../test104/Sources/mainwindow.cpp
 
@@ -427,14 +455,29 @@ account.o: ../test104/Sources/account.cpp ../test104/Headers/account.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o account.o ../test104/Sources/account.cpp
 
 newuserwindow.o: ../test104/Sources/newuserwindow.cpp ../test104/Headers/newuserwindow.h \
+		../test104/Headers/mainwindow.h \
+		../test104/Headers/dao.h \
+		../test104/Headers/account.h \
+		../test104/Headers/existinguserwindow.h \
 		ui_newuserwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o newuserwindow.o ../test104/Sources/newuserwindow.cpp
+
+existinguserwindow.o: ../test104/Sources/existinguserwindow.cpp ../test104/Headers/existinguserwindow.h \
+		../test104/Headers/mainwindow.h \
+		../test104/Headers/dao.h \
+		../test104/Headers/account.h \
+		../test104/Headers/newuserwindow.h \
+		ui_existinguserwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o existinguserwindow.o ../test104/Sources/existinguserwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_newuserwindow.o: moc_newuserwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_newuserwindow.o moc_newuserwindow.cpp
+
+moc_existinguserwindow.o: moc_existinguserwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_existinguserwindow.o moc_existinguserwindow.cpp
 
 ####### Install
 

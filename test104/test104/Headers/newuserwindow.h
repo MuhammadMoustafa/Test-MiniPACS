@@ -19,9 +19,12 @@ public:
     ~NewUserWindow();
 
 private:
+    void closeEvent(QCloseEvent *event);
+
     Ui::NewUserWindow *ui;
     Dao* dao;
     Account currentuser;
+    MainWindow* mainwindow;
 };
 
 #endif // NEWUSERWINDOW_H
