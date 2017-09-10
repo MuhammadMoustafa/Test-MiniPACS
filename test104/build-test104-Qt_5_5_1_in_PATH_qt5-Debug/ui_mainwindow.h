@@ -39,6 +39,10 @@ public:
     QLabel *lbl_date;
     QLabel *lbl_time;
     QSpacerItem *horizontalSpacer;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *lbl_currentuser;
+    QLabel *lbl_currentusername;
+    QSpacerItem *horizontalSpacer_4;
     QHBoxLayout *horizontalLayout;
     QLineEdit *lnedt_username;
     QLineEdit *lnedt_password;
@@ -101,6 +105,27 @@ public:
 
 
         horizontalLayout_2->addLayout(verticalLayout_3);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(-1, -1, 0, -1);
+        lbl_currentuser = new QLabel(centralWidget);
+        lbl_currentuser->setObjectName(QStringLiteral("lbl_currentuser"));
+
+        verticalLayout_2->addWidget(lbl_currentuser);
+
+        lbl_currentusername = new QLabel(centralWidget);
+        lbl_currentusername->setObjectName(QStringLiteral("lbl_currentusername"));
+
+        verticalLayout_2->addWidget(lbl_currentusername);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_2->addItem(horizontalSpacer_4);
+
+
+        horizontalLayout_2->addLayout(verticalLayout_2);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
@@ -242,6 +267,8 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         lbl_date->setText(QString());
         lbl_time->setText(QString());
+        lbl_currentuser->setText(QApplication::translate("MainWindow", "Current User :", 0));
+        lbl_currentusername->setText(QString());
         lnedt_username->setPlaceholderText(QApplication::translate("MainWindow", "Username", 0));
         lnedt_password->setPlaceholderText(QApplication::translate("MainWindow", "Password", 0));
         btn_login->setText(QApplication::translate("MainWindow", "login", 0));

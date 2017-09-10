@@ -76,9 +76,9 @@ public:
     QComboBox *cmbox_department;
     QWidget *wdgt_admin;
     QVBoxLayout *verticalLayout_6;
-    QPushButton *btn_addphysician;
-    QPushButton *btn_addrefphysician;
-    QPushButton *btn_adddepartment;
+    QPushButton *btn_editphysician;
+    QPushButton *btn_editrefphysician;
+    QPushButton *btn_editdepartment;
     QVBoxLayout *verticalLayout_8;
     QSpacerItem *horizontalSpacer_2;
     QHBoxLayout *horizontalLayout_4;
@@ -285,20 +285,20 @@ public:
         wdgt_admin->setObjectName(QStringLiteral("wdgt_admin"));
         verticalLayout_6 = new QVBoxLayout(wdgt_admin);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        btn_addphysician = new QPushButton(wdgt_admin);
-        btn_addphysician->setObjectName(QStringLiteral("btn_addphysician"));
+        btn_editphysician = new QPushButton(wdgt_admin);
+        btn_editphysician->setObjectName(QStringLiteral("btn_editphysician"));
 
-        verticalLayout_6->addWidget(btn_addphysician);
+        verticalLayout_6->addWidget(btn_editphysician);
 
-        btn_addrefphysician = new QPushButton(wdgt_admin);
-        btn_addrefphysician->setObjectName(QStringLiteral("btn_addrefphysician"));
+        btn_editrefphysician = new QPushButton(wdgt_admin);
+        btn_editrefphysician->setObjectName(QStringLiteral("btn_editrefphysician"));
 
-        verticalLayout_6->addWidget(btn_addrefphysician);
+        verticalLayout_6->addWidget(btn_editrefphysician);
 
-        btn_adddepartment = new QPushButton(wdgt_admin);
-        btn_adddepartment->setObjectName(QStringLiteral("btn_adddepartment"));
+        btn_editdepartment = new QPushButton(wdgt_admin);
+        btn_editdepartment->setObjectName(QStringLiteral("btn_editdepartment"));
 
-        verticalLayout_6->addWidget(btn_adddepartment);
+        verticalLayout_6->addWidget(btn_editdepartment);
 
 
         gridLayout->addWidget(wdgt_admin, 0, 3, 1, 1);
@@ -365,12 +365,12 @@ public:
         QWidget::setTabOrder(rdbtn_female, dateEdit_dob);
         QWidget::setTabOrder(dateEdit_dob, cmbox_examtype);
         QWidget::setTabOrder(cmbox_examtype, cmbox_physician);
-        QWidget::setTabOrder(cmbox_physician, btn_addphysician);
-        QWidget::setTabOrder(btn_addphysician, cmbox_refphysician);
-        QWidget::setTabOrder(cmbox_refphysician, btn_addrefphysician);
-        QWidget::setTabOrder(btn_addrefphysician, cmbox_department);
-        QWidget::setTabOrder(cmbox_department, btn_adddepartment);
-        QWidget::setTabOrder(btn_adddepartment, btn_ok);
+        QWidget::setTabOrder(cmbox_physician, btn_editphysician);
+        QWidget::setTabOrder(btn_editphysician, cmbox_refphysician);
+        QWidget::setTabOrder(cmbox_refphysician, btn_editrefphysician);
+        QWidget::setTabOrder(btn_editrefphysician, cmbox_department);
+        QWidget::setTabOrder(cmbox_department, btn_editdepartment);
+        QWidget::setTabOrder(btn_editdepartment, btn_ok);
         QWidget::setTabOrder(btn_ok, btn_reset);
 
         retranslateUi(NewUserWindow);
@@ -381,25 +381,25 @@ public:
     void retranslateUi(QMainWindow *NewUserWindow)
     {
         NewUserWindow->setWindowTitle(QApplication::translate("NewUserWindow", "MainWindow", 0));
-        lbl_date->setText(QApplication::translate("NewUserWindow", "&date", 0));
-        lbl_time->setText(QApplication::translate("NewUserWindow", "t&ime", 0));
-        lbl_currentuser->setText(QApplication::translate("NewUserWindow", "&currentuser", 0));
-        lbl_currentusername->setText(QApplication::translate("NewUserWindow", "c&urrentusername", 0));
+        lbl_date->setText(QApplication::translate("NewUserWindow", "Date", 0));
+        lbl_time->setText(QApplication::translate("NewUserWindow", "Time", 0));
+        lbl_currentuser->setText(QApplication::translate("NewUserWindow", "Current User :", 0));
+        lbl_currentusername->setText(QString());
         lnedt_lastname->setPlaceholderText(QApplication::translate("NewUserWindow", "Last Name", 0));
-        lbl_examtype->setText(QApplication::translate("NewUserWindow", "E&xam Type", 0));
+        lbl_examtype->setText(QApplication::translate("NewUserWindow", "Exam Type", 0));
         lbl_height->setText(QApplication::translate("NewUserWindow", "Height in cm", 0));
         lnedt_firstname->setPlaceholderText(QApplication::translate("NewUserWindow", "First Name", 0));
         rdbtn_male->setText(QApplication::translate("NewUserWindow", "&Male", 0));
         rdbtn_female->setText(QApplication::translate("NewUserWindow", "&Female", 0));
         lbl_age->setText(QApplication::translate("NewUserWindow", "Age", 0));
         dateEdit_dob->setDisplayFormat(QApplication::translate("NewUserWindow", "dd/MM/yyyy", 0));
-        lbl_weight->setText(QApplication::translate("NewUserWindow", "Weight in &kg", 0));
-        lbl_physician->setText(QApplication::translate("NewUserWindow", "Ph&ysician", 0));
+        lbl_weight->setText(QApplication::translate("NewUserWindow", "Weight in kg", 0));
+        lbl_physician->setText(QApplication::translate("NewUserWindow", "Physician", 0));
         lbl_refphysician->setText(QApplication::translate("NewUserWindow", "Ref. Physician", 0));
-        lbl_department->setText(QApplication::translate("NewUserWindow", "Departme&nt", 0));
-        btn_addphysician->setText(QApplication::translate("NewUserWindow", "Add", 0));
-        btn_addrefphysician->setText(QApplication::translate("NewUserWindow", "Add", 0));
-        btn_adddepartment->setText(QApplication::translate("NewUserWindow", "Add", 0));
+        lbl_department->setText(QApplication::translate("NewUserWindow", "Department", 0));
+        btn_editphysician->setText(QApplication::translate("NewUserWindow", "Add", 0));
+        btn_editrefphysician->setText(QApplication::translate("NewUserWindow", "Add", 0));
+        btn_editdepartment->setText(QApplication::translate("NewUserWindow", "Add", 0));
         btn_reset->setText(QApplication::translate("NewUserWindow", "Reset", 0));
         btn_ok->setText(QApplication::translate("NewUserWindow", "Ok", 0));
     } // retranslateUi
