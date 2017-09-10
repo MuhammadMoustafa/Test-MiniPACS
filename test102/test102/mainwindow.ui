@@ -246,7 +246,7 @@
             </font>
            </property>
            <property name="text">
-            <string>B&amp;irthday</string>
+            <string>Birthday</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -263,7 +263,7 @@
          <item row="4" column="2">
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>T&amp;extLabel</string>
+            <string>TextLabel</string>
            </property>
           </widget>
          </item>
@@ -335,7 +335,7 @@
      <x>0</x>
      <y>0</y>
      <width>1185</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

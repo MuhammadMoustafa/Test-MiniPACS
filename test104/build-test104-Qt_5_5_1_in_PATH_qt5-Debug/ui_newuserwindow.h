@@ -36,55 +36,57 @@ class Ui_NewUserWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *horizontalLayoutWidget;
+    QVBoxLayout *verticalLayout_10;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
-    QLabel *label_4;
-    QLabel *label_5;
+    QLabel *lbl_date;
+    QLabel *lbl_time;
     QVBoxLayout *verticalLayout_4;
-    QLabel *label_6;
-    QLabel *label_7;
+    QLabel *lbl_currentuser;
+    QLabel *lbl_currentusername;
     QVBoxLayout *verticalLayout_5;
     QSpacerItem *horizontalSpacer;
-    QWidget *gridLayoutWidget;
-    QGridLayout *gridLayout;
-    QVBoxLayout *verticalLayout_7;
-    QLabel *label_2;
-    QLabel *label;
-    QLabel *label_3;
-    QVBoxLayout *verticalLayout_6;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton;
-    QPushButton *pushButton_3;
-    QVBoxLayout *verticalLayout;
-    QComboBox *comboBox;
-    QComboBox *comboBox_2;
-    QComboBox *comboBox_3;
-    QWidget *gridLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_5;
+    QSpacerItem *verticalSpacer_2;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout_9;
+    QSpacerItem *horizontalSpacer_3;
+    QVBoxLayout *verticalLayout_3;
     QGridLayout *gridLayout_2;
-    QDoubleSpinBox *doubleSpinBox;
+    QDoubleSpinBox *spnbox_height;
     QLineEdit *lnedt_lastname;
-    QLabel *label_8;
-    QComboBox *comboBox_4;
-    QLabel *label_9;
+    QLabel *lbl_examtype;
+    QComboBox *cmbox_examtype;
+    QLabel *lbl_height;
     QLineEdit *lnedt_firstname;
     QRadioButton *rdbtn_male;
     QRadioButton *rdbtn_female;
     QLabel *lbl_age;
-    QDateEdit *dateEdit;
-    QDoubleSpinBox *doubleSpinBox_2;
-    QLabel *label_10;
-    QWidget *verticalLayoutWidget_7;
+    QDateEdit *dateEdit_dob;
+    QDoubleSpinBox *spnbox_weight;
+    QLabel *lbl_weight;
+    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout_7;
+    QLabel *lbl_physician;
+    QLabel *lbl_refphysician;
+    QLabel *lbl_department;
+    QVBoxLayout *verticalLayout;
+    QComboBox *cmbox_physician;
+    QComboBox *cmbox_refphysician;
+    QComboBox *cmbox_department;
+    QWidget *wdgt_admin;
+    QVBoxLayout *verticalLayout_6;
+    QPushButton *btn_addphysician;
+    QPushButton *btn_addrefphysician;
+    QPushButton *btn_adddepartment;
     QVBoxLayout *verticalLayout_8;
     QSpacerItem *horizontalSpacer_2;
-    QWidget *verticalLayoutWidget_8;
-    QVBoxLayout *verticalLayout_9;
-    QSpacerItem *horizontalSpacer_3;
-    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_4;
+    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_4;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_4;
+    QPushButton *btn_reset;
+    QPushButton *btn_ok;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -95,230 +97,257 @@ public:
         NewUserWindow->resize(1152, 863);
         centralwidget = new QWidget(NewUserWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        horizontalLayoutWidget = new QWidget(centralwidget);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(140, 30, 621, 191));
-        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget);
+        verticalLayout_10 = new QVBoxLayout(centralwidget);
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
+        horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label_4 = new QLabel(horizontalLayoutWidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
+        lbl_date = new QLabel(centralwidget);
+        lbl_date->setObjectName(QStringLiteral("lbl_date"));
 
-        verticalLayout_2->addWidget(label_4);
+        verticalLayout_2->addWidget(lbl_date);
 
-        label_5 = new QLabel(horizontalLayoutWidget);
-        label_5->setObjectName(QStringLiteral("label_5"));
+        lbl_time = new QLabel(centralwidget);
+        lbl_time->setObjectName(QStringLiteral("lbl_time"));
 
-        verticalLayout_2->addWidget(label_5);
+        verticalLayout_2->addWidget(lbl_time);
 
 
         horizontalLayout_2->addLayout(verticalLayout_2);
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        label_6 = new QLabel(horizontalLayoutWidget);
-        label_6->setObjectName(QStringLiteral("label_6"));
+        lbl_currentuser = new QLabel(centralwidget);
+        lbl_currentuser->setObjectName(QStringLiteral("lbl_currentuser"));
 
-        verticalLayout_4->addWidget(label_6);
+        verticalLayout_4->addWidget(lbl_currentuser);
 
-        label_7 = new QLabel(horizontalLayoutWidget);
-        label_7->setObjectName(QStringLiteral("label_7"));
+        lbl_currentusername = new QLabel(centralwidget);
+        lbl_currentusername->setObjectName(QStringLiteral("lbl_currentusername"));
 
-        verticalLayout_4->addWidget(label_7);
+        verticalLayout_4->addWidget(lbl_currentusername);
 
 
         horizontalLayout_2->addLayout(verticalLayout_4);
 
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         verticalLayout_5->addItem(horizontalSpacer);
 
 
         horizontalLayout_2->addLayout(verticalLayout_5);
 
-        gridLayoutWidget = new QWidget(centralwidget);
-        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(150, 460, 370, 168));
-        gridLayout = new QGridLayout(gridLayoutWidget);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        label_2 = new QLabel(gridLayoutWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
-        label_2->setSizePolicy(sizePolicy);
 
-        verticalLayout_7->addWidget(label_2);
+        verticalLayout_10->addLayout(horizontalLayout_2);
 
-        label = new QLabel(gridLayoutWidget);
-        label->setObjectName(QStringLiteral("label"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_7->addWidget(label);
-
-        label_3 = new QLabel(gridLayoutWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        verticalLayout_7->addWidget(label_3);
+        horizontalLayout_5->addItem(verticalSpacer_2);
 
 
-        gridLayout->addLayout(verticalLayout_7, 0, 0, 1, 1);
+        verticalLayout_10->addLayout(horizontalLayout_5);
 
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        pushButton_2 = new QPushButton(gridLayoutWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout_9 = new QVBoxLayout();
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
+        horizontalSpacer_3 = new QSpacerItem(200, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
-        verticalLayout_6->addWidget(pushButton_2);
-
-        pushButton = new QPushButton(gridLayoutWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        verticalLayout_6->addWidget(pushButton);
-
-        pushButton_3 = new QPushButton(gridLayoutWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-
-        verticalLayout_6->addWidget(pushButton_3);
+        verticalLayout_9->addItem(horizontalSpacer_3);
 
 
-        gridLayout->addLayout(verticalLayout_6, 0, 3, 1, 1);
+        horizontalLayout->addLayout(verticalLayout_9);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        comboBox = new QComboBox(gridLayoutWidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-
-        verticalLayout->addWidget(comboBox);
-
-        comboBox_2 = new QComboBox(gridLayoutWidget);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-
-        verticalLayout->addWidget(comboBox_2);
-
-        comboBox_3 = new QComboBox(gridLayoutWidget);
-        comboBox_3->setObjectName(QStringLiteral("comboBox_3"));
-
-        verticalLayout->addWidget(comboBox_3);
-
-
-        gridLayout->addLayout(verticalLayout, 0, 1, 1, 1);
-
-        gridLayoutWidget_2 = new QWidget(centralwidget);
-        gridLayoutWidget_2->setObjectName(QStringLiteral("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(260, 250, 641, 191));
-        gridLayout_2 = new QGridLayout(gridLayoutWidget_2);
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        doubleSpinBox = new QDoubleSpinBox(gridLayoutWidget_2);
-        doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
-        doubleSpinBox->setMaximum(300);
+        spnbox_height = new QDoubleSpinBox(centralwidget);
+        spnbox_height->setObjectName(QStringLiteral("spnbox_height"));
+        spnbox_height->setMaximum(300);
 
-        gridLayout_2->addWidget(doubleSpinBox, 1, 1, 1, 1);
+        gridLayout_2->addWidget(spnbox_height, 1, 1, 1, 1);
 
-        lnedt_lastname = new QLineEdit(gridLayoutWidget_2);
+        lnedt_lastname = new QLineEdit(centralwidget);
         lnedt_lastname->setObjectName(QStringLiteral("lnedt_lastname"));
 
         gridLayout_2->addWidget(lnedt_lastname, 0, 1, 1, 1);
 
-        label_8 = new QLabel(gridLayoutWidget_2);
-        label_8->setObjectName(QStringLiteral("label_8"));
+        lbl_examtype = new QLabel(centralwidget);
+        lbl_examtype->setObjectName(QStringLiteral("lbl_examtype"));
 
-        gridLayout_2->addWidget(label_8, 5, 0, 1, 1);
+        gridLayout_2->addWidget(lbl_examtype, 5, 0, 1, 1);
 
-        comboBox_4 = new QComboBox(gridLayoutWidget_2);
-        comboBox_4->setObjectName(QStringLiteral("comboBox_4"));
+        cmbox_examtype = new QComboBox(centralwidget);
+        cmbox_examtype->setObjectName(QStringLiteral("cmbox_examtype"));
 
-        gridLayout_2->addWidget(comboBox_4, 5, 1, 1, 1);
+        gridLayout_2->addWidget(cmbox_examtype, 5, 1, 1, 1);
 
-        label_9 = new QLabel(gridLayoutWidget_2);
-        label_9->setObjectName(QStringLiteral("label_9"));
+        lbl_height = new QLabel(centralwidget);
+        lbl_height->setObjectName(QStringLiteral("lbl_height"));
 
-        gridLayout_2->addWidget(label_9, 1, 0, 1, 1);
+        gridLayout_2->addWidget(lbl_height, 1, 0, 1, 1);
 
-        lnedt_firstname = new QLineEdit(gridLayoutWidget_2);
+        lnedt_firstname = new QLineEdit(centralwidget);
         lnedt_firstname->setObjectName(QStringLiteral("lnedt_firstname"));
 
         gridLayout_2->addWidget(lnedt_firstname, 0, 0, 1, 1);
 
-        rdbtn_male = new QRadioButton(gridLayoutWidget_2);
+        rdbtn_male = new QRadioButton(centralwidget);
         rdbtn_male->setObjectName(QStringLiteral("rdbtn_male"));
 
         gridLayout_2->addWidget(rdbtn_male, 3, 0, 1, 1);
 
-        rdbtn_female = new QRadioButton(gridLayoutWidget_2);
+        rdbtn_female = new QRadioButton(centralwidget);
         rdbtn_female->setObjectName(QStringLiteral("rdbtn_female"));
 
         gridLayout_2->addWidget(rdbtn_female, 3, 1, 1, 1);
 
-        lbl_age = new QLabel(gridLayoutWidget_2);
+        lbl_age = new QLabel(centralwidget);
         lbl_age->setObjectName(QStringLiteral("lbl_age"));
 
         gridLayout_2->addWidget(lbl_age, 4, 1, 1, 1);
 
-        dateEdit = new QDateEdit(gridLayoutWidget_2);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
-        dateEdit->setCalendarPopup(true);
+        dateEdit_dob = new QDateEdit(centralwidget);
+        dateEdit_dob->setObjectName(QStringLiteral("dateEdit_dob"));
+        dateEdit_dob->setCalendarPopup(true);
 
-        gridLayout_2->addWidget(dateEdit, 4, 0, 1, 1);
+        gridLayout_2->addWidget(dateEdit_dob, 4, 0, 1, 1);
 
-        doubleSpinBox_2 = new QDoubleSpinBox(gridLayoutWidget_2);
-        doubleSpinBox_2->setObjectName(QStringLiteral("doubleSpinBox_2"));
-        doubleSpinBox_2->setMaximum(600);
+        spnbox_weight = new QDoubleSpinBox(centralwidget);
+        spnbox_weight->setObjectName(QStringLiteral("spnbox_weight"));
+        spnbox_weight->setMaximum(600);
 
-        gridLayout_2->addWidget(doubleSpinBox_2, 2, 1, 1, 1);
+        gridLayout_2->addWidget(spnbox_weight, 2, 1, 1, 1);
 
-        label_10 = new QLabel(gridLayoutWidget_2);
-        label_10->setObjectName(QStringLiteral("label_10"));
+        lbl_weight = new QLabel(centralwidget);
+        lbl_weight->setObjectName(QStringLiteral("lbl_weight"));
 
-        gridLayout_2->addWidget(label_10, 2, 0, 1, 1);
+        gridLayout_2->addWidget(lbl_weight, 2, 0, 1, 1);
 
-        verticalLayoutWidget_7 = new QWidget(centralwidget);
-        verticalLayoutWidget_7->setObjectName(QStringLiteral("verticalLayoutWidget_7"));
-        verticalLayoutWidget_7->setGeometry(QRect(940, 280, 160, 80));
-        verticalLayout_8 = new QVBoxLayout(verticalLayoutWidget_7);
+
+        verticalLayout_3->addLayout(gridLayout_2);
+
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setContentsMargins(0, -1, 0, -1);
+        verticalLayout_7 = new QVBoxLayout();
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        lbl_physician = new QLabel(centralwidget);
+        lbl_physician->setObjectName(QStringLiteral("lbl_physician"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(lbl_physician->sizePolicy().hasHeightForWidth());
+        lbl_physician->setSizePolicy(sizePolicy);
+
+        verticalLayout_7->addWidget(lbl_physician);
+
+        lbl_refphysician = new QLabel(centralwidget);
+        lbl_refphysician->setObjectName(QStringLiteral("lbl_refphysician"));
+
+        verticalLayout_7->addWidget(lbl_refphysician);
+
+        lbl_department = new QLabel(centralwidget);
+        lbl_department->setObjectName(QStringLiteral("lbl_department"));
+
+        verticalLayout_7->addWidget(lbl_department);
+
+
+        gridLayout->addLayout(verticalLayout_7, 0, 0, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        cmbox_physician = new QComboBox(centralwidget);
+        cmbox_physician->setObjectName(QStringLiteral("cmbox_physician"));
+
+        verticalLayout->addWidget(cmbox_physician);
+
+        cmbox_refphysician = new QComboBox(centralwidget);
+        cmbox_refphysician->setObjectName(QStringLiteral("cmbox_refphysician"));
+
+        verticalLayout->addWidget(cmbox_refphysician);
+
+        cmbox_department = new QComboBox(centralwidget);
+        cmbox_department->setObjectName(QStringLiteral("cmbox_department"));
+
+        verticalLayout->addWidget(cmbox_department);
+
+
+        gridLayout->addLayout(verticalLayout, 0, 1, 1, 1);
+
+        wdgt_admin = new QWidget(centralwidget);
+        wdgt_admin->setObjectName(QStringLiteral("wdgt_admin"));
+        verticalLayout_6 = new QVBoxLayout(wdgt_admin);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        btn_addphysician = new QPushButton(wdgt_admin);
+        btn_addphysician->setObjectName(QStringLiteral("btn_addphysician"));
+
+        verticalLayout_6->addWidget(btn_addphysician);
+
+        btn_addrefphysician = new QPushButton(wdgt_admin);
+        btn_addrefphysician->setObjectName(QStringLiteral("btn_addrefphysician"));
+
+        verticalLayout_6->addWidget(btn_addrefphysician);
+
+        btn_adddepartment = new QPushButton(wdgt_admin);
+        btn_adddepartment->setObjectName(QStringLiteral("btn_adddepartment"));
+
+        verticalLayout_6->addWidget(btn_adddepartment);
+
+
+        gridLayout->addWidget(wdgt_admin, 0, 3, 1, 1);
+
+
+        verticalLayout_3->addLayout(gridLayout);
+
+
+        horizontalLayout->addLayout(verticalLayout_3);
+
+        verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(200, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         verticalLayout_8->addItem(horizontalSpacer_2);
 
-        verticalLayoutWidget_8 = new QWidget(centralwidget);
-        verticalLayoutWidget_8->setObjectName(QStringLiteral("verticalLayoutWidget_8"));
-        verticalLayoutWidget_8->setGeometry(QRect(50, 300, 160, 80));
-        verticalLayout_9 = new QVBoxLayout(verticalLayoutWidget_8);
-        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        verticalLayout_9->setContentsMargins(0, 0, 0, 0);
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout_9->addItem(horizontalSpacer_3);
+        horizontalLayout->addLayout(verticalLayout_8);
 
-        horizontalLayoutWidget_2 = new QWidget(centralwidget);
-        horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(330, 720, 421, 80));
-        horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_2);
+
+        verticalLayout_10->addLayout(horizontalLayout);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        horizontalLayout_4->addItem(verticalSpacer);
+
+
+        verticalLayout_10->addLayout(horizontalLayout_4);
+
+        horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer_4);
 
-        pushButton_5 = new QPushButton(horizontalLayoutWidget_2);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        btn_reset = new QPushButton(centralwidget);
+        btn_reset->setObjectName(QStringLiteral("btn_reset"));
 
-        horizontalLayout_3->addWidget(pushButton_5);
+        horizontalLayout_3->addWidget(btn_reset);
 
-        pushButton_4 = new QPushButton(horizontalLayoutWidget_2);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        btn_ok = new QPushButton(centralwidget);
+        btn_ok->setObjectName(QStringLiteral("btn_ok"));
 
-        horizontalLayout_3->addWidget(pushButton_4);
+        horizontalLayout_3->addWidget(btn_ok);
+
+
+        verticalLayout_10->addLayout(horizontalLayout_3);
 
         NewUserWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(NewUserWindow);
@@ -328,6 +357,21 @@ public:
         statusbar = new QStatusBar(NewUserWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
         NewUserWindow->setStatusBar(statusbar);
+        QWidget::setTabOrder(lnedt_firstname, lnedt_lastname);
+        QWidget::setTabOrder(lnedt_lastname, spnbox_height);
+        QWidget::setTabOrder(spnbox_height, spnbox_weight);
+        QWidget::setTabOrder(spnbox_weight, rdbtn_male);
+        QWidget::setTabOrder(rdbtn_male, rdbtn_female);
+        QWidget::setTabOrder(rdbtn_female, dateEdit_dob);
+        QWidget::setTabOrder(dateEdit_dob, cmbox_examtype);
+        QWidget::setTabOrder(cmbox_examtype, cmbox_physician);
+        QWidget::setTabOrder(cmbox_physician, btn_addphysician);
+        QWidget::setTabOrder(btn_addphysician, cmbox_refphysician);
+        QWidget::setTabOrder(cmbox_refphysician, btn_addrefphysician);
+        QWidget::setTabOrder(btn_addrefphysician, cmbox_department);
+        QWidget::setTabOrder(cmbox_department, btn_adddepartment);
+        QWidget::setTabOrder(btn_adddepartment, btn_ok);
+        QWidget::setTabOrder(btn_ok, btn_reset);
 
         retranslateUi(NewUserWindow);
 
@@ -337,27 +381,27 @@ public:
     void retranslateUi(QMainWindow *NewUserWindow)
     {
         NewUserWindow->setWindowTitle(QApplication::translate("NewUserWindow", "MainWindow", 0));
-        label_4->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        label_5->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        label_6->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        label_7->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        label_2->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        label->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        label_3->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        pushButton_2->setText(QApplication::translate("NewUserWindow", "PushButton", 0));
-        pushButton->setText(QApplication::translate("NewUserWindow", "PushButton", 0));
-        pushButton_3->setText(QApplication::translate("NewUserWindow", "PushButton", 0));
+        lbl_date->setText(QApplication::translate("NewUserWindow", "&date", 0));
+        lbl_time->setText(QApplication::translate("NewUserWindow", "t&ime", 0));
+        lbl_currentuser->setText(QApplication::translate("NewUserWindow", "&currentuser", 0));
+        lbl_currentusername->setText(QApplication::translate("NewUserWindow", "c&urrentusername", 0));
         lnedt_lastname->setPlaceholderText(QApplication::translate("NewUserWindow", "Last Name", 0));
-        label_8->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        label_9->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
+        lbl_examtype->setText(QApplication::translate("NewUserWindow", "E&xam Type", 0));
+        lbl_height->setText(QApplication::translate("NewUserWindow", "Height in cm", 0));
         lnedt_firstname->setPlaceholderText(QApplication::translate("NewUserWindow", "First Name", 0));
         rdbtn_male->setText(QApplication::translate("NewUserWindow", "&Male", 0));
         rdbtn_female->setText(QApplication::translate("NewUserWindow", "&Female", 0));
         lbl_age->setText(QApplication::translate("NewUserWindow", "Age", 0));
-        dateEdit->setDisplayFormat(QApplication::translate("NewUserWindow", "dd/MM/yyyy", 0));
-        label_10->setText(QApplication::translate("NewUserWindow", "TextLabel", 0));
-        pushButton_5->setText(QApplication::translate("NewUserWindow", "PushButton", 0));
-        pushButton_4->setText(QApplication::translate("NewUserWindow", "PushButton", 0));
+        dateEdit_dob->setDisplayFormat(QApplication::translate("NewUserWindow", "dd/MM/yyyy", 0));
+        lbl_weight->setText(QApplication::translate("NewUserWindow", "Weight in &kg", 0));
+        lbl_physician->setText(QApplication::translate("NewUserWindow", "Ph&ysician", 0));
+        lbl_refphysician->setText(QApplication::translate("NewUserWindow", "Ref. Physician", 0));
+        lbl_department->setText(QApplication::translate("NewUserWindow", "Departme&nt", 0));
+        btn_addphysician->setText(QApplication::translate("NewUserWindow", "Add", 0));
+        btn_addrefphysician->setText(QApplication::translate("NewUserWindow", "Add", 0));
+        btn_adddepartment->setText(QApplication::translate("NewUserWindow", "Add", 0));
+        btn_reset->setText(QApplication::translate("NewUserWindow", "Reset", 0));
+        btn_ok->setText(QApplication::translate("NewUserWindow", "Ok", 0));
     } // retranslateUi
 
 };

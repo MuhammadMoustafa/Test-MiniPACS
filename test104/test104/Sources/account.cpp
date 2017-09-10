@@ -35,3 +35,9 @@ int Account::get_privilage()
     return this->privilege;
 }
 
+bool Account::isAdmin()
+{
+    if(this->privilege == 1) return true;
+    else return false;
+}
+

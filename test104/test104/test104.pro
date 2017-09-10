@@ -38,7 +38,6 @@ SOURCES += \
 HEADERS += \
     Headers/mainwindow.h \
     Headers/dao.h \
-    Headers/dao.h \
     Headers/patient.h \
     Headers/image.h \
     Headers/visit.h \

@@ -15,6 +15,8 @@ int main()
                    "prefix      TEXT,"
                    "gender      TEXT,"
                    "birthday    TEXT,"
+                   "height      REAL,"
+                   "weight      REAL,"
                    "PRIMARY KEY (id) )");
 
         query.exec("CREATE TABLE IF NOT EXISTS visit ("
@@ -45,6 +47,24 @@ int main()
                    "PRIMARY KEY (id),"
                    "FOREIGN KEY (patient_id) REFERENCES patient(id),"
                    "FOREIGN KEY (visit_id) REFERENCES visit(id) )");
+
+        query.exec("CREATE TABLE IF NOT EXISTS physician ("
+                   "name    TEXT    ,"
+                   "PRIMARY KEY (name) )");
+
+        query.exec("CREATE TABLE IF NOT EXISTS refphysician ("
+                   "name    TEXT    ,"
+                   "PRIMARY KEY (name) )");
+
+        query.exec("CREATE TABLE IF NOT EXISTS department ("
+                   "name    TEXT    ,"
+                   "PRIMARY KEY (name) )");
+
+        query.exec("CREATE TABLE IF NOT EXISTS examtype ("
+                   "type    TEXT    ,"
+                   "PRIMARY KEY (type) )");
+
+        qDebug() << query.lastError().text();
 
         db.close();
 }

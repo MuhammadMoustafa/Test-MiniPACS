@@ -61,9 +61,6 @@ void MainWindow::onlogout(){
     ui->btn_login->setText("login");
     ui->wdgt_userpanel->hide();
     status = "logout";
-    wndw_newuser->close();
-    wndw_exisitinguser->close();
-
 }
 
 

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "Headers/mainwindow.h"
+#include "Headers/dao.h"
 
 class MainWindow;
 
@@ -18,10 +19,19 @@ public:
     explicit NewUserWindow(MainWindow *parent = 0); //QWidget
     ~NewUserWindow();
 
+private slots:
+    void on_btn_reset_clicked();
+
+    void showTime();
+
+
+    void on_btn_ok_clicked();
+
 private:
     void closeEvent(QCloseEvent *event);
 
     Ui::NewUserWindow *ui;
+    QString status;
     Dao* dao;
     Account currentuser;
     MainWindow* mainwindow;

@@ -141,7 +141,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../test104/test104.pro ../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
-		../test104/Headers/dao.h \
 		../test104/Headers/patient.h \
 		../test104/Headers/image.h \
 		../test104/Headers/visit.h \
@@ -347,7 +346,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../test104/Headers/mainwindow.h ../test104/Headers/dao.h ../test104/Headers/dao.h ../test104/Headers/patient.h ../test104/Headers/image.h ../test104/Headers/visit.h ../test104/Headers/account.h ../test104/Headers/newuserwindow.h ../test104/Headers/existinguserwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../test104/Headers/mainwindow.h ../test104/Headers/dao.h ../test104/Headers/patient.h ../test104/Headers/image.h ../test104/Headers/visit.h ../test104/Headers/account.h ../test104/Headers/newuserwindow.h ../test104/Headers/existinguserwindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../test104/Sources/dao.cpp ../test104/Sources/main.cpp ../test104/Sources/mainwindow.cpp ../test104/Sources/patient.cpp ../test104/Sources/visit.cpp ../test104/Sources/image.cpp ../test104/Sources/account.cpp ../test104/Sources/newuserwindow.cpp ../test104/Sources/existinguserwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../test104/mainwindow.ui ../test104/Forms/newuserwindow.ui ../test104/Forms/existinguserwindow.ui $(DISTDIR)/
 
@@ -377,6 +376,9 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_newuserwindow.cpp moc_existinguserwindow.cpp
 moc_mainwindow.cpp: ../test104/Headers/dao.h \
 		../test104/Headers/account.h \
+		../test104/Headers/patient.h \
+		../test104/Headers/image.h \
+		../test104/Headers/visit.h \
 		../test104/Headers/newuserwindow.h \
 		../test104/Headers/mainwindow.h \
 		../test104/Headers/existinguserwindow.h \
@@ -386,6 +388,9 @@ moc_mainwindow.cpp: ../test104/Headers/dao.h \
 moc_newuserwindow.cpp: ../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
 		../test104/Headers/account.h \
+		../test104/Headers/patient.h \
+		../test104/Headers/image.h \
+		../test104/Headers/visit.h \
 		../test104/Headers/newuserwindow.h \
 		../test104/Headers/existinguserwindow.h \
 		../test104/Headers/newuserwindow.h
@@ -394,6 +399,9 @@ moc_newuserwindow.cpp: ../test104/Headers/mainwindow.h \
 moc_existinguserwindow.cpp: ../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
 		../test104/Headers/account.h \
+		../test104/Headers/patient.h \
+		../test104/Headers/image.h \
+		../test104/Headers/visit.h \
 		../test104/Headers/newuserwindow.h \
 		../test104/Headers/existinguserwindow.h \
 		../test104/Headers/existinguserwindow.h
@@ -424,12 +432,18 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 dao.o: ../test104/Sources/dao.cpp ../test104/Headers/dao.h \
-		../test104/Headers/account.h
+		../test104/Headers/account.h \
+		../test104/Headers/patient.h \
+		../test104/Headers/image.h \
+		../test104/Headers/visit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dao.o ../test104/Sources/dao.cpp
 
 main.o: ../test104/Sources/main.cpp ../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
 		../test104/Headers/account.h \
+		../test104/Headers/patient.h \
+		../test104/Headers/image.h \
+		../test104/Headers/visit.h \
 		../test104/Headers/newuserwindow.h \
 		../test104/Headers/existinguserwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../test104/Sources/main.cpp
@@ -437,6 +451,9 @@ main.o: ../test104/Sources/main.cpp ../test104/Headers/mainwindow.h \
 mainwindow.o: ../test104/Sources/mainwindow.cpp ../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
 		../test104/Headers/account.h \
+		../test104/Headers/patient.h \
+		../test104/Headers/image.h \
+		../test104/Headers/visit.h \
 		../test104/Headers/newuserwindow.h \
 		../test104/Headers/existinguserwindow.h \
 		ui_mainwindow.h
@@ -458,6 +475,9 @@ newuserwindow.o: ../test104/Sources/newuserwindow.cpp ../test104/Headers/newuser
 		../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
 		../test104/Headers/account.h \
+		../test104/Headers/patient.h \
+		../test104/Headers/image.h \
+		../test104/Headers/visit.h \
 		../test104/Headers/existinguserwindow.h \
 		ui_newuserwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o newuserwindow.o ../test104/Sources/newuserwindow.cpp
@@ -466,6 +486,9 @@ existinguserwindow.o: ../test104/Sources/existinguserwindow.cpp ../test104/Heade
 		../test104/Headers/mainwindow.h \
 		../test104/Headers/dao.h \
 		../test104/Headers/account.h \
+		../test104/Headers/patient.h \
+		../test104/Headers/image.h \
+		../test104/Headers/visit.h \
 		../test104/Headers/newuserwindow.h \
 		ui_existinguserwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o existinguserwindow.o ../test104/Sources/existinguserwindow.cpp

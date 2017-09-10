@@ -26,6 +26,12 @@ public:
     QString get_birthday();
     void set_birthday(QString birthday);
 
+    float get_height();
+    void set_height(float height);
+
+    float get_weight();
+    void set_weight(float weight);
+
 
 private:
     QString id;
@@ -34,6 +40,8 @@ private:
     QString lastname;
     QString gender;
     QString birthday;
+    float height;
+    float weight;
 };
 
 #endif // PATIENT_H

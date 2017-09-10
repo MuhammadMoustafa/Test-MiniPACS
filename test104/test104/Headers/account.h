@@ -16,6 +16,8 @@ public:
     QString get_password();
     int get_privilage();
 
+    bool isAdmin();
+
 private:
     QString username;
     QString password;

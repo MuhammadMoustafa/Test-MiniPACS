@@ -18,6 +18,13 @@ void ExistingUserWindow::closeEvent(QCloseEvent *event)
     mainwindow->show();
 }
 
+
+void ExistingUserWindow::on_btn_Search_clicked()
+{
+    ui->tableView->setModel(dao->selectPatient(ui->lineEdit->text(),status));
+    ui->statusbar->showMessage(status);
+}
+
 ExistingUserWindow::~ExistingUserWindow()
 {
     delete ui;
