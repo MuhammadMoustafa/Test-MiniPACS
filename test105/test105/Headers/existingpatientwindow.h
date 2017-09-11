@@ -3,8 +3,10 @@
 
 #include <QMainWindow>
 #include "Headers/mainwindow.h"
+#include "Headers/test.h"
 
 class MainWindow;
+class test;
 
 namespace Ui {
 class ExistingPatientWindow;
@@ -17,9 +19,14 @@ class ExistingPatientWindow : public QMainWindow
 public:
     explicit ExistingPatientWindow(MainWindow *parent = 0);
     ~ExistingPatientWindow();
+    MainWindow* mainwindow;
+    bool ok; // to decide whether the close action caised by ok or close button
+
 
 private slots:
     void on_btn_Search_clicked();
+
+    void on_tableView_clicked(const QModelIndex &index);
 
 private:
     void closeEvent(QCloseEvent *event);
@@ -27,7 +34,7 @@ private:
     QString status;
     Dao* dao;
     Account currentuser;
-    MainWindow* mainwindow;
+    test *t;
 };
 
 #endif // EXISTINGPATIENTWINDOW_H

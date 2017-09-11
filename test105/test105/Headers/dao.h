@@ -30,6 +30,7 @@ public:
     void deleteExamtype(QString name, QString &status);
 
     QSqlTableModel* selectPatient(QString id, QString& status);
+    Patient selectPatient(QString id);
 
 private:
     QSqlDatabase db;

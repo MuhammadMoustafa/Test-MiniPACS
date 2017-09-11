@@ -57,10 +57,12 @@ SOURCES       = ../test105/Sources/dao.cpp \
 		../test105/Sources/account.cpp \
 		../test105/Sources/existingpatientwindow.cpp \
 		../test105/Sources/newpatientwindow.cpp \
-		../test105/Sources/adminpanelwindow.cpp moc_mainwindow.cpp \
+		../test105/Sources/adminpanelwindow.cpp \
+		../test105/Sources/test.cpp moc_mainwindow.cpp \
 		moc_existingpatientwindow.cpp \
 		moc_newpatientwindow.cpp \
-		moc_adminpanelwindow.cpp
+		moc_adminpanelwindow.cpp \
+		moc_test.cpp
 OBJECTS       = dao.o \
 		main.o \
 		mainwindow.o \
@@ -71,10 +73,12 @@ OBJECTS       = dao.o \
 		existingpatientwindow.o \
 		newpatientwindow.o \
 		adminpanelwindow.o \
+		test.o \
 		moc_mainwindow.o \
 		moc_existingpatientwindow.o \
 		moc_newpatientwindow.o \
-		moc_adminpanelwindow.o
+		moc_adminpanelwindow.o \
+		moc_test.o
 DIST          = ../test105/ToDo \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -152,7 +156,8 @@ DIST          = ../test105/ToDo \
 		../test105/Headers/account.h \
 		../test105/Headers/existingpatientwindow.h \
 		../test105/Headers/newpatientwindow.h \
-		../test105/Headers/adminpanelwindow.h ../test105/Sources/dao.cpp \
+		../test105/Headers/adminpanelwindow.h \
+		../test105/Headers/test.h ../test105/Sources/dao.cpp \
 		../test105/Sources/main.cpp \
 		../test105/Sources/mainwindow.cpp \
 		../test105/Sources/patient.cpp \
@@ -161,7 +166,8 @@ DIST          = ../test105/ToDo \
 		../test105/Sources/account.cpp \
 		../test105/Sources/existingpatientwindow.cpp \
 		../test105/Sources/newpatientwindow.cpp \
-		../test105/Sources/adminpanelwindow.cpp
+		../test105/Sources/adminpanelwindow.cpp \
+		../test105/Sources/test.cpp
 QMAKE_TARGET  = test105
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = test105
@@ -189,7 +195,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_existingpatientwindow.h ui_newpatientwindow.h ui_adminpanelwindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_existingpatientwindow.h ui_newpatientwindow.h ui_adminpanelwindow.h ui_test.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../test105/test105.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -353,9 +359,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../test105/Headers/mainwindow.h ../test105/Headers/dao.h ../test105/Headers/patient.h ../test105/Headers/image.h ../test105/Headers/visit.h ../test105/Headers/account.h ../test105/Headers/existingpatientwindow.h ../test105/Headers/newpatientwindow.h ../test105/Headers/adminpanelwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../test105/Sources/dao.cpp ../test105/Sources/main.cpp ../test105/Sources/mainwindow.cpp ../test105/Sources/patient.cpp ../test105/Sources/visit.cpp ../test105/Sources/image.cpp ../test105/Sources/account.cpp ../test105/Sources/existingpatientwindow.cpp ../test105/Sources/newpatientwindow.cpp ../test105/Sources/adminpanelwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../test105/Forms/mainwindow.ui ../test105/Forms/existingpatientwindow.ui ../test105/Forms/newpatientwindow.ui ../test105/Forms/adminpanelwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../test105/Headers/mainwindow.h ../test105/Headers/dao.h ../test105/Headers/patient.h ../test105/Headers/image.h ../test105/Headers/visit.h ../test105/Headers/account.h ../test105/Headers/existingpatientwindow.h ../test105/Headers/newpatientwindow.h ../test105/Headers/adminpanelwindow.h ../test105/Headers/test.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../test105/Sources/dao.cpp ../test105/Sources/main.cpp ../test105/Sources/mainwindow.cpp ../test105/Sources/patient.cpp ../test105/Sources/visit.cpp ../test105/Sources/image.cpp ../test105/Sources/account.cpp ../test105/Sources/existingpatientwindow.cpp ../test105/Sources/newpatientwindow.cpp ../test105/Sources/adminpanelwindow.cpp ../test105/Sources/test.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../test105/Forms/mainwindow.ui ../test105/Forms/existingpatientwindow.ui ../test105/Forms/newpatientwindow.ui ../test105/Forms/adminpanelwindow.ui ../test105/Forms/test.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -378,9 +384,9 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_existingpatientwindow.cpp moc_newpatientwindow.cpp moc_adminpanelwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_existingpatientwindow.cpp moc_newpatientwindow.cpp moc_adminpanelwindow.cpp moc_test.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_existingpatientwindow.cpp moc_newpatientwindow.cpp moc_adminpanelwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_existingpatientwindow.cpp moc_newpatientwindow.cpp moc_adminpanelwindow.cpp moc_test.cpp
 moc_mainwindow.cpp: ../test105/Headers/dao.h \
 		../test105/Headers/account.h \
 		../test105/Headers/patient.h \
@@ -390,6 +396,7 @@ moc_mainwindow.cpp: ../test105/Headers/dao.h \
 		../test105/Headers/mainwindow.h \
 		../test105/Headers/existingpatientwindow.h \
 		../test105/Headers/adminpanelwindow.h \
+		../test105/Headers/test.h \
 		../test105/Headers/mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/muhammad/Git-repos/test2/test105/test105 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../test105/Headers/mainwindow.h -o moc_mainwindow.cpp
 
@@ -400,6 +407,7 @@ moc_existingpatientwindow.cpp: ../test105/Headers/mainwindow.h \
 		../test105/Headers/image.h \
 		../test105/Headers/visit.h \
 		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/test.h \
 		../test105/Headers/existingpatientwindow.h \
 		../test105/Headers/adminpanelwindow.h \
 		../test105/Headers/existingpatientwindow.h
@@ -412,6 +420,7 @@ moc_newpatientwindow.cpp: ../test105/Headers/mainwindow.h \
 		../test105/Headers/image.h \
 		../test105/Headers/visit.h \
 		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/test.h \
 		../test105/Headers/existingpatientwindow.h \
 		../test105/Headers/adminpanelwindow.h \
 		../test105/Headers/newpatientwindow.h
@@ -424,16 +433,30 @@ moc_adminpanelwindow.cpp: ../test105/Headers/mainwindow.h \
 		../test105/Headers/image.h \
 		../test105/Headers/visit.h \
 		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/test.h \
 		../test105/Headers/existingpatientwindow.h \
 		../test105/Headers/adminpanelwindow.h \
 		../test105/Headers/adminpanelwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/muhammad/Git-repos/test2/test105/test105 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../test105/Headers/adminpanelwindow.h -o moc_adminpanelwindow.cpp
 
+moc_test.cpp: ../test105/Headers/mainwindow.h \
+		../test105/Headers/dao.h \
+		../test105/Headers/account.h \
+		../test105/Headers/patient.h \
+		../test105/Headers/image.h \
+		../test105/Headers/visit.h \
+		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/test.h \
+		../test105/Headers/existingpatientwindow.h \
+		../test105/Headers/adminpanelwindow.h \
+		../test105/Headers/test.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/muhammad/Git-repos/test2/test105/test105 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../test105/Headers/test.h -o moc_test.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_existingpatientwindow.h ui_newpatientwindow.h ui_adminpanelwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_existingpatientwindow.h ui_newpatientwindow.h ui_adminpanelwindow.h ui_test.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_existingpatientwindow.h ui_newpatientwindow.h ui_adminpanelwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_existingpatientwindow.h ui_newpatientwindow.h ui_adminpanelwindow.h ui_test.h
 ui_mainwindow.h: ../test105/Forms/mainwindow.ui
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../test105/Forms/mainwindow.ui -o ui_mainwindow.h
 
@@ -445,6 +468,9 @@ ui_newpatientwindow.h: ../test105/Forms/newpatientwindow.ui
 
 ui_adminpanelwindow.h: ../test105/Forms/adminpanelwindow.ui
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../test105/Forms/adminpanelwindow.ui -o ui_adminpanelwindow.h
+
+ui_test.h: ../test105/Forms/test.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../test105/Forms/test.ui -o ui_test.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -470,6 +496,7 @@ main.o: ../test105/Sources/main.cpp ../test105/Headers/mainwindow.h \
 		../test105/Headers/image.h \
 		../test105/Headers/visit.h \
 		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/test.h \
 		../test105/Headers/existingpatientwindow.h \
 		../test105/Headers/adminpanelwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../test105/Sources/main.cpp
@@ -481,6 +508,7 @@ mainwindow.o: ../test105/Sources/mainwindow.cpp ../test105/Headers/mainwindow.h 
 		../test105/Headers/image.h \
 		../test105/Headers/visit.h \
 		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/test.h \
 		../test105/Headers/existingpatientwindow.h \
 		../test105/Headers/adminpanelwindow.h \
 		ui_mainwindow.h
@@ -506,6 +534,7 @@ existingpatientwindow.o: ../test105/Sources/existingpatientwindow.cpp ../test105
 		../test105/Headers/image.h \
 		../test105/Headers/visit.h \
 		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/test.h \
 		../test105/Headers/adminpanelwindow.h \
 		ui_existingpatientwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o existingpatientwindow.o ../test105/Sources/existingpatientwindow.cpp
@@ -519,6 +548,7 @@ newpatientwindow.o: ../test105/Sources/newpatientwindow.cpp ../test105/Headers/n
 		../test105/Headers/visit.h \
 		../test105/Headers/existingpatientwindow.h \
 		../test105/Headers/adminpanelwindow.h \
+		../test105/Headers/test.h \
 		ui_newpatientwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o newpatientwindow.o ../test105/Sources/newpatientwindow.cpp
 
@@ -530,9 +560,23 @@ adminpanelwindow.o: ../test105/Sources/adminpanelwindow.cpp ../test105/Headers/a
 		../test105/Headers/image.h \
 		../test105/Headers/visit.h \
 		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/test.h \
 		../test105/Headers/existingpatientwindow.h \
 		ui_adminpanelwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adminpanelwindow.o ../test105/Sources/adminpanelwindow.cpp
+
+test.o: ../test105/Sources/test.cpp ../test105/Headers/test.h \
+		../test105/Headers/mainwindow.h \
+		../test105/Headers/dao.h \
+		../test105/Headers/account.h \
+		../test105/Headers/patient.h \
+		../test105/Headers/image.h \
+		../test105/Headers/visit.h \
+		../test105/Headers/newpatientwindow.h \
+		../test105/Headers/existingpatientwindow.h \
+		../test105/Headers/adminpanelwindow.h \
+		ui_test.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o test.o ../test105/Sources/test.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -545,6 +589,9 @@ moc_newpatientwindow.o: moc_newpatientwindow.cpp
 
 moc_adminpanelwindow.o: moc_adminpanelwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_adminpanelwindow.o moc_adminpanelwindow.cpp
+
+moc_test.o: moc_test.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_test.o moc_test.cpp
 
 ####### Install
 

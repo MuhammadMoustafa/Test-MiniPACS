@@ -15,3 +15,7 @@ Track users login and logout
 
 Track users insertion and deletion then do all the queries at the end of the session
 
+Exception handling espicially queries that return value
+
+
+Create a base class that mainwindow newpatientwindow ... etc can inherit from

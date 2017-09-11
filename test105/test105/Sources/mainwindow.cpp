@@ -8,18 +8,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     dao = new Dao();
 
+    dao->selectPatient("asd");
     //wndw_newuser = new NewUserWindow(this);
     //wndw_exisitinguser = new ExistingUserWindow(this);
 
-
-    ui->wdgt_userpanel->hide();
     ui->wdgt_admin->hide();
     isLogged = false;
 
+    
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
     showTime();
     timer->start(1000);
+
+    //ui->btn_login->hide();
 
 }
 
@@ -41,15 +43,13 @@ void MainWindow::onlogin(){
     currentuser.set_username(ui->lnedt_username->text());
     currentuser.set_password(ui->lnedt_password->text());
     if(dao->isUser(currentuser, status)){
-        ui->wdgt_userpanel->show();
+        ui->wdgt_lnedt->hide();
+        ui->wdgt_admin->show();
         isLogged = true;
         ui->btn_login->setText("logout");
         ui->lnedt_password->setText("");
         ui->lnedt_username->setText("");
         ui->lbl_currentusername->setText(currentuser.get_username());
-        if(currentuser.get_privilage()){
-            ui->wdgt_admin->show();
-        }
     }
 }
 
@@ -57,10 +57,8 @@ void MainWindow::onlogout(){
 
     isLogged = false;
     ui->btn_login->setText("login");
-    ui->wdgt_userpanel->hide();
+    ui->wdgt_lnedt->show();
     ui->wdgt_admin->hide();
-    ui->lnedt_password->setText("");
-    ui->lnedt_username->setText("");
     ui->lbl_currentusername->setText("");
     status = "logout";
 }
@@ -82,7 +80,7 @@ void MainWindow::on_btn_login_clicked()
 
 
 
-void MainWindow::on_btn_newuser_clicked()
+void MainWindow::on_btn_newpatient_clicked()
 {
     wndw_newuser = new NewPatientWindow(this);
     wndw_newuser->show();
@@ -90,7 +88,7 @@ void MainWindow::on_btn_newuser_clicked()
 
 
 
-void MainWindow::on_btn_existinguser_clicked()
+void MainWindow::on_btn_existingpatient_clicked()
 {
     wndw_exisitinguser = new ExistingPatientWindow(this);
     wndw_exisitinguser->show();

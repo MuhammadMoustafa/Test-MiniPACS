@@ -163,6 +163,39 @@ QSqlTableModel *Dao::selectPatient(QString id, QString& status)
     return model;
 }
 
+Patient Dao::selectPatient(QString id)
+{
+    Patient patient;
+
+    QString qry = "SELECT FIRSTNAME, LASTNAME, GENDER, BIRTHDAY, HEIGHT,WEIGHT "
+                  "FROM PATIENT "
+                  "WHERE ID = :id";
+
+    QSqlQuery query(db);
+    query.prepare(qry);
+
+    query.bindValue(":id", id);
+
+    if (query.exec()){
+        query.first();
+
+        patient.set_firstname(query.value(0).toString());
+        patient.set_lastname(query.value(1).toString());
+
+        patient.set_gender(query.value(2).toString());
+        patient.set_birthday(query.value(3).toString());
+
+        patient.set_height(query.value(4).toInt());
+        patient.set_weight(query.value(5).toInt());
+
+    }
+    else{
+        qDebug() << query.lastError().text();
+    }
+
+    return patient;
+}
+
 void Dao::insertPatient(Patient patient, QString& status)
 {
     QString qry = "INSERT INTO PATIENT (ID, FIRSTNAME, LASTNAME, GENDER, BIRTHDAY, HEIGHT, WEIGHT)"

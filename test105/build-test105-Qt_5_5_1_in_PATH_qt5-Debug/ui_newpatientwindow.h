@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -53,18 +52,22 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QVBoxLayout *verticalLayout_3;
     QGridLayout *gridLayout_2;
-    QDoubleSpinBox *spnbox_height;
-    QLineEdit *lnedt_lastname;
-    QLabel *lbl_examtype;
+    QDoubleSpinBox *spnbox_weight;
     QComboBox *cmbox_examtype;
-    QLabel *lbl_height;
-    QLineEdit *lnedt_firstname;
+    QLabel *lbl_examtype;
     QRadioButton *rdbtn_male;
     QRadioButton *rdbtn_female;
-    QLabel *lbl_age;
-    QDateEdit *dateEdit_dob;
-    QDoubleSpinBox *spnbox_weight;
     QLabel *lbl_weight;
+    QDoubleSpinBox *spnbox_height;
+    QLineEdit *lnedt_firstname;
+    QLineEdit *lnedt_lastname;
+    QLabel *lbl_height;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *lbl_birthday;
+    QLineEdit *lnedt_day;
+    QLineEdit *lnedt_month;
+    QLineEdit *lnedt_year;
+    QLabel *lbl_age;
     QGridLayout *gridLayout;
     QWidget *wdgt_user;
     QVBoxLayout *verticalLayout_6;
@@ -174,36 +177,21 @@ public:
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        spnbox_height = new QDoubleSpinBox(centralwidget);
-        spnbox_height->setObjectName(QStringLiteral("spnbox_height"));
-        spnbox_height->setMaximum(300);
+        spnbox_weight = new QDoubleSpinBox(centralwidget);
+        spnbox_weight->setObjectName(QStringLiteral("spnbox_weight"));
+        spnbox_weight->setMaximum(600);
 
-        gridLayout_2->addWidget(spnbox_height, 1, 1, 1, 1);
-
-        lnedt_lastname = new QLineEdit(centralwidget);
-        lnedt_lastname->setObjectName(QStringLiteral("lnedt_lastname"));
-
-        gridLayout_2->addWidget(lnedt_lastname, 0, 1, 1, 1);
-
-        lbl_examtype = new QLabel(centralwidget);
-        lbl_examtype->setObjectName(QStringLiteral("lbl_examtype"));
-
-        gridLayout_2->addWidget(lbl_examtype, 5, 0, 1, 1);
+        gridLayout_2->addWidget(spnbox_weight, 2, 1, 1, 1);
 
         cmbox_examtype = new QComboBox(centralwidget);
         cmbox_examtype->setObjectName(QStringLiteral("cmbox_examtype"));
 
         gridLayout_2->addWidget(cmbox_examtype, 5, 1, 1, 1);
 
-        lbl_height = new QLabel(centralwidget);
-        lbl_height->setObjectName(QStringLiteral("lbl_height"));
+        lbl_examtype = new QLabel(centralwidget);
+        lbl_examtype->setObjectName(QStringLiteral("lbl_examtype"));
 
-        gridLayout_2->addWidget(lbl_height, 1, 0, 1, 1);
-
-        lnedt_firstname = new QLineEdit(centralwidget);
-        lnedt_firstname->setObjectName(QStringLiteral("lnedt_firstname"));
-
-        gridLayout_2->addWidget(lnedt_firstname, 0, 0, 1, 1);
+        gridLayout_2->addWidget(lbl_examtype, 5, 0, 1, 1);
 
         rdbtn_male = new QRadioButton(centralwidget);
         rdbtn_male->setObjectName(QStringLiteral("rdbtn_male"));
@@ -215,27 +203,69 @@ public:
 
         gridLayout_2->addWidget(rdbtn_female, 3, 1, 1, 1);
 
-        lbl_age = new QLabel(centralwidget);
-        lbl_age->setObjectName(QStringLiteral("lbl_age"));
-
-        gridLayout_2->addWidget(lbl_age, 4, 1, 1, 1);
-
-        dateEdit_dob = new QDateEdit(centralwidget);
-        dateEdit_dob->setObjectName(QStringLiteral("dateEdit_dob"));
-        dateEdit_dob->setCalendarPopup(true);
-
-        gridLayout_2->addWidget(dateEdit_dob, 4, 0, 1, 1);
-
-        spnbox_weight = new QDoubleSpinBox(centralwidget);
-        spnbox_weight->setObjectName(QStringLiteral("spnbox_weight"));
-        spnbox_weight->setMaximum(600);
-
-        gridLayout_2->addWidget(spnbox_weight, 2, 1, 1, 1);
-
         lbl_weight = new QLabel(centralwidget);
         lbl_weight->setObjectName(QStringLiteral("lbl_weight"));
 
         gridLayout_2->addWidget(lbl_weight, 2, 0, 1, 1);
+
+        spnbox_height = new QDoubleSpinBox(centralwidget);
+        spnbox_height->setObjectName(QStringLiteral("spnbox_height"));
+        spnbox_height->setMaximum(300);
+
+        gridLayout_2->addWidget(spnbox_height, 1, 1, 1, 1);
+
+        lnedt_firstname = new QLineEdit(centralwidget);
+        lnedt_firstname->setObjectName(QStringLiteral("lnedt_firstname"));
+
+        gridLayout_2->addWidget(lnedt_firstname, 0, 0, 1, 1);
+
+        lnedt_lastname = new QLineEdit(centralwidget);
+        lnedt_lastname->setObjectName(QStringLiteral("lnedt_lastname"));
+
+        gridLayout_2->addWidget(lnedt_lastname, 0, 1, 1, 1);
+
+        lbl_height = new QLabel(centralwidget);
+        lbl_height->setObjectName(QStringLiteral("lbl_height"));
+
+        gridLayout_2->addWidget(lbl_height, 1, 0, 1, 1);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        lbl_birthday = new QLabel(centralwidget);
+        lbl_birthday->setObjectName(QStringLiteral("lbl_birthday"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(lbl_birthday->sizePolicy().hasHeightForWidth());
+        lbl_birthday->setSizePolicy(sizePolicy);
+
+        horizontalLayout_6->addWidget(lbl_birthday);
+
+        lnedt_day = new QLineEdit(centralwidget);
+        lnedt_day->setObjectName(QStringLiteral("lnedt_day"));
+
+        horizontalLayout_6->addWidget(lnedt_day);
+
+        lnedt_month = new QLineEdit(centralwidget);
+        lnedt_month->setObjectName(QStringLiteral("lnedt_month"));
+
+        horizontalLayout_6->addWidget(lnedt_month);
+
+        lnedt_year = new QLineEdit(centralwidget);
+        lnedt_year->setObjectName(QStringLiteral("lnedt_year"));
+
+        horizontalLayout_6->addWidget(lnedt_year);
+
+        lbl_age = new QLabel(centralwidget);
+        lbl_age->setObjectName(QStringLiteral("lbl_age"));
+        sizePolicy.setHeightForWidth(lbl_age->sizePolicy().hasHeightForWidth());
+        lbl_age->setSizePolicy(sizePolicy);
+        lbl_age->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_6->addWidget(lbl_age);
+
+
+        gridLayout_2->addLayout(horizontalLayout_6, 4, 0, 1, 2);
 
 
         verticalLayout_3->addLayout(gridLayout_2);
@@ -315,11 +345,11 @@ public:
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
         lbl_physician = new QLabel(wdgt_lbl);
         lbl_physician->setObjectName(QStringLiteral("lbl_physician"));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(lbl_physician->sizePolicy().hasHeightForWidth());
-        lbl_physician->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(lbl_physician->sizePolicy().hasHeightForWidth());
+        lbl_physician->setSizePolicy(sizePolicy1);
 
         verticalLayout_7->addWidget(lbl_physician);
 
@@ -399,8 +429,7 @@ public:
         QWidget::setTabOrder(spnbox_height, spnbox_weight);
         QWidget::setTabOrder(spnbox_weight, rdbtn_male);
         QWidget::setTabOrder(rdbtn_male, rdbtn_female);
-        QWidget::setTabOrder(rdbtn_female, dateEdit_dob);
-        QWidget::setTabOrder(dateEdit_dob, cmbox_examtype);
+        QWidget::setTabOrder(rdbtn_female, cmbox_examtype);
         QWidget::setTabOrder(cmbox_examtype, cmbox_physician);
         QWidget::setTabOrder(cmbox_physician, btn_addphysician);
         QWidget::setTabOrder(btn_addphysician, cmbox_refphysician);
@@ -422,15 +451,18 @@ public:
         lbl_time->setText(QApplication::translate("NewPatientWindow", "Time", 0));
         lbl_currentuser->setText(QApplication::translate("NewPatientWindow", "Current User :", 0));
         lbl_currentusername->setText(QString());
-        lnedt_lastname->setPlaceholderText(QApplication::translate("NewPatientWindow", "Last Name", 0));
         lbl_examtype->setText(QApplication::translate("NewPatientWindow", "Exam Type", 0));
-        lbl_height->setText(QApplication::translate("NewPatientWindow", "Height in cm", 0));
-        lnedt_firstname->setPlaceholderText(QApplication::translate("NewPatientWindow", "First Name", 0));
-        rdbtn_male->setText(QApplication::translate("NewPatientWindow", "Male", 0));
-        rdbtn_female->setText(QApplication::translate("NewPatientWindow", "Female", 0));
-        lbl_age->setText(QApplication::translate("NewPatientWindow", "Age", 0));
-        dateEdit_dob->setDisplayFormat(QApplication::translate("NewPatientWindow", "dd/MM/yyyy", 0));
+        rdbtn_male->setText(QApplication::translate("NewPatientWindow", "&Male", 0));
+        rdbtn_female->setText(QApplication::translate("NewPatientWindow", "&Female", 0));
         lbl_weight->setText(QApplication::translate("NewPatientWindow", "Weight in kg", 0));
+        lnedt_firstname->setPlaceholderText(QApplication::translate("NewPatientWindow", "First Name", 0));
+        lnedt_lastname->setPlaceholderText(QApplication::translate("NewPatientWindow", "Last Name", 0));
+        lbl_height->setText(QApplication::translate("NewPatientWindow", "Height in cm", 0));
+        lbl_birthday->setText(QApplication::translate("NewPatientWindow", "Birthday", 0));
+        lnedt_day->setPlaceholderText(QApplication::translate("NewPatientWindow", "day", 0));
+        lnedt_month->setPlaceholderText(QApplication::translate("NewPatientWindow", "month", 0));
+        lnedt_year->setPlaceholderText(QApplication::translate("NewPatientWindow", "year", 0));
+        lbl_age->setText(QApplication::translate("NewPatientWindow", "Age", 0));
         btn_addphysician->setText(QApplication::translate("NewPatientWindow", "Add", 0));
         btn_addrefphysician->setText(QApplication::translate("NewPatientWindow", "Add", 0));
         btn_adddepartment->setText(QApplication::translate("NewPatientWindow", "Add", 0));

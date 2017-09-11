@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_NewPatientWindow_t {
     QByteArrayData data[13];
-    char stringdata0[291];
+    char stringdata0[289];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,7 +41,7 @@ QT_MOC_LITERAL(8, 133, 28), // "on_btn_adddepartment_clicked"
 QT_MOC_LITERAL(9, 162, 30), // "on_btn_deletephysician_clicked"
 QT_MOC_LITERAL(10, 193, 33), // "on_btn_deleterefphysician_cli..."
 QT_MOC_LITERAL(11, 227, 31), // "on_btn_deletedepartment_clicked"
-QT_MOC_LITERAL(12, 259, 31) // "on_dateEdit_dob_editingFinished"
+QT_MOC_LITERAL(12, 259, 29) // "on_lnedt_year_editingFinished"
 
     },
     "NewPatientWindow\0on_btn_reset_clicked\0"
@@ -52,7 +52,7 @@ QT_MOC_LITERAL(12, 259, 31) // "on_dateEdit_dob_editingFinished"
     "on_btn_deletephysician_clicked\0"
     "on_btn_deleterefphysician_clicked\0"
     "on_btn_deletedepartment_clicked\0"
-    "on_dateEdit_dob_editingFinished"
+    "on_lnedt_year_editingFinished"
 };
 #undef QT_MOC_LITERAL
 
@@ -114,7 +114,7 @@ void NewPatientWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 7: _t->on_btn_deletephysician_clicked(); break;
         case 8: _t->on_btn_deleterefphysician_clicked(); break;
         case 9: _t->on_btn_deletedepartment_clicked(); break;
-        case 10: _t->on_dateEdit_dob_editingFinished(); break;
+        case 10: _t->on_lnedt_year_editingFinished(); break;
         default: ;
         }
     }

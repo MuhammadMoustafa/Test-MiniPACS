@@ -33,7 +33,8 @@ SOURCES += \
     Sources/account.cpp \
     Sources/existingpatientwindow.cpp \
     Sources/newpatientwindow.cpp \
-    Sources/adminpanelwindow.cpp
+    Sources/adminpanelwindow.cpp \
+    Sources/test.cpp
 
 
 HEADERS += \
@@ -45,13 +46,15 @@ HEADERS += \
     Headers/account.h \
     Headers/existingpatientwindow.h \
     Headers/newpatientwindow.h \
-    Headers/adminpanelwindow.h
+    Headers/adminpanelwindow.h \
+    Headers/test.h
 
 FORMS += \
     Forms/mainwindow.ui \
     Forms/existingpatientwindow.ui \
     Forms/newpatientwindow.ui \
-    Forms/adminpanelwindow.ui
+    Forms/adminpanelwindow.ui \
+    Forms/test.ui
 
 DISTFILES += \
     ToDo

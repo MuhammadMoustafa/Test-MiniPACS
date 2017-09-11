@@ -118,19 +118,15 @@
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="1" column="1">
-           <widget class="QDoubleSpinBox" name="spnbox_height">
+          <item row="2" column="1">
+           <widget class="QDoubleSpinBox" name="spnbox_weight">
             <property name="maximum">
-             <double>300.000000000000000</double>
+             <double>600.000000000000000</double>
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="lnedt_lastname">
-            <property name="placeholderText">
-             <string>Last Name</string>
-            </property>
-           </widget>
+          <item row="5" column="1">
+           <widget class="QComboBox" name="cmbox_examtype"/>
           </item>
           <item row="5" column="0">
            <widget class="QLabel" name="lbl_examtype">
@@ -139,13 +135,31 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
-           <widget class="QComboBox" name="cmbox_examtype"/>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="lbl_height">
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rdbtn_male">
             <property name="text">
-             <string>Height in cm</string>
+             <string>&amp;Male</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QRadioButton" name="rdbtn_female">
+            <property name="text">
+             <string>&amp;Female</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lbl_weight">
+            <property name="text">
+             <string>Weight in kg</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QDoubleSpinBox" name="spnbox_height">
+            <property name="maximum">
+             <double>300.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -156,50 +170,73 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QRadioButton" name="rdbtn_male">
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lnedt_lastname">
+            <property name="placeholderText">
+             <string>Last Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lbl_height">
             <property name="text">
-             <string>Male</string>
+             <string>Height in cm</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QRadioButton" name="rdbtn_female">
-            <property name="text">
-             <string>Female</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLabel" name="lbl_age">
-            <property name="text">
-             <string>Age</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QDateEdit" name="dateEdit_dob">
-            <property name="displayFormat">
-             <string>dd/MM/yyyy</string>
-            </property>
-            <property name="calendarPopup">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QDoubleSpinBox" name="spnbox_weight">
-            <property name="maximum">
-             <double>600.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="lbl_weight">
-            <property name="text">
-             <string>Weight in kg</string>
-            </property>
-           </widget>
+          <item row="4" column="0" colspan="2">
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QLabel" name="lbl_birthday">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Birthday</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lnedt_day">
+              <property name="placeholderText">
+               <string>day</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lnedt_month">
+              <property name="placeholderText">
+               <string>month</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lnedt_year">
+              <property name="placeholderText">
+               <string>year</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_age">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Age</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>
@@ -415,7 +452,6 @@
   <tabstop>spnbox_weight</tabstop>
   <tabstop>rdbtn_male</tabstop>
   <tabstop>rdbtn_female</tabstop>
-  <tabstop>dateEdit_dob</tabstop>
   <tabstop>cmbox_examtype</tabstop>
   <tabstop>cmbox_physician</tabstop>
   <tabstop>btn_addphysician</tabstop>

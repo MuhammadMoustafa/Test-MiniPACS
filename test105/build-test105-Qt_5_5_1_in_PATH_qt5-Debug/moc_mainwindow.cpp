@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[7];
-    char stringdata0[119];
+    char stringdata0[125];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,14 +33,14 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 20), // "on_btn_login_clicked"
 QT_MOC_LITERAL(2, 32, 0), // ""
 QT_MOC_LITERAL(3, 33, 8), // "showTime"
-QT_MOC_LITERAL(4, 42, 22), // "on_btn_newuser_clicked"
-QT_MOC_LITERAL(5, 65, 27), // "on_btn_existinguser_clicked"
-QT_MOC_LITERAL(6, 93, 25) // "on_btn_adminpanel_clicked"
+QT_MOC_LITERAL(4, 42, 25), // "on_btn_newpatient_clicked"
+QT_MOC_LITERAL(5, 68, 30), // "on_btn_existingpatient_clicked"
+QT_MOC_LITERAL(6, 99, 25) // "on_btn_adminpanel_clicked"
 
     },
     "MainWindow\0on_btn_login_clicked\0\0"
-    "showTime\0on_btn_newuser_clicked\0"
-    "on_btn_existinguser_clicked\0"
+    "showTime\0on_btn_newpatient_clicked\0"
+    "on_btn_existingpatient_clicked\0"
     "on_btn_adminpanel_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -83,8 +83,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->on_btn_login_clicked(); break;
         case 1: _t->showTime(); break;
-        case 2: _t->on_btn_newuser_clicked(); break;
-        case 3: _t->on_btn_existinguser_clicked(); break;
+        case 2: _t->on_btn_newpatient_clicked(); break;
+        case 3: _t->on_btn_existingpatient_clicked(); break;
         case 4: _t->on_btn_adminpanel_clicked(); break;
         default: ;
         }

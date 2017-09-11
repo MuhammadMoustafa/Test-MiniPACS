@@ -44,8 +44,11 @@ public:
     QLabel *lbl_currentusername;
     QSpacerItem *horizontalSpacer_4;
     QHBoxLayout *horizontalLayout;
+    QWidget *wdgt_lnedt;
+    QHBoxLayout *horizontalLayout_6;
     QLineEdit *lnedt_username;
     QLineEdit *lnedt_password;
+    QVBoxLayout *verticalLayout_10;
     QPushButton *btn_login;
     QHBoxLayout *horizontalLayout_5;
     QSpacerItem *verticalSpacer_2;
@@ -56,8 +59,8 @@ public:
     QVBoxLayout *verticalLayout;
     QWidget *wdgt_user;
     QVBoxLayout *verticalLayout_8;
-    QPushButton *btn_newuser;
-    QPushButton *btn_existinguser;
+    QPushButton *btn_newpatient;
+    QPushButton *btn_existingpatient;
     QWidget *wdgt_admin;
     QVBoxLayout *verticalLayout_9;
     QPushButton *btn_adminpanel;
@@ -130,21 +133,38 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        lnedt_username = new QLineEdit(centralWidget);
+        wdgt_lnedt = new QWidget(centralWidget);
+        wdgt_lnedt->setObjectName(QStringLiteral("wdgt_lnedt"));
+        horizontalLayout_6 = new QHBoxLayout(wdgt_lnedt);
+        horizontalLayout_6->setSpacing(6);
+        horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        horizontalLayout_6->setContentsMargins(1, -1, -1, -1);
+        lnedt_username = new QLineEdit(wdgt_lnedt);
         lnedt_username->setObjectName(QStringLiteral("lnedt_username"));
 
-        horizontalLayout->addWidget(lnedt_username);
+        horizontalLayout_6->addWidget(lnedt_username);
 
-        lnedt_password = new QLineEdit(centralWidget);
+        lnedt_password = new QLineEdit(wdgt_lnedt);
         lnedt_password->setObjectName(QStringLiteral("lnedt_password"));
         lnedt_password->setEchoMode(QLineEdit::Password);
 
-        horizontalLayout->addWidget(lnedt_password);
+        horizontalLayout_6->addWidget(lnedt_password);
 
+
+        horizontalLayout->addWidget(wdgt_lnedt);
+
+        verticalLayout_10 = new QVBoxLayout();
+        verticalLayout_10->setSpacing(6);
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
+        verticalLayout_10->setContentsMargins(0, -1, -1, -1);
         btn_login = new QPushButton(centralWidget);
         btn_login->setObjectName(QStringLiteral("btn_login"));
 
-        horizontalLayout->addWidget(btn_login);
+        verticalLayout_10->addWidget(btn_login);
+
+
+        horizontalLayout->addLayout(verticalLayout_10);
 
 
         horizontalLayout_2->addLayout(horizontalLayout);
@@ -188,15 +208,15 @@ public:
         verticalLayout_8->setContentsMargins(11, 11, 11, 11);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
         verticalLayout_8->setContentsMargins(-1, -1, -1, 1);
-        btn_newuser = new QPushButton(wdgt_user);
-        btn_newuser->setObjectName(QStringLiteral("btn_newuser"));
+        btn_newpatient = new QPushButton(wdgt_user);
+        btn_newpatient->setObjectName(QStringLiteral("btn_newpatient"));
 
-        verticalLayout_8->addWidget(btn_newuser);
+        verticalLayout_8->addWidget(btn_newpatient);
 
-        btn_existinguser = new QPushButton(wdgt_user);
-        btn_existinguser->setObjectName(QStringLiteral("btn_existinguser"));
+        btn_existingpatient = new QPushButton(wdgt_user);
+        btn_existingpatient->setObjectName(QStringLiteral("btn_existingpatient"));
 
-        verticalLayout_8->addWidget(btn_existinguser);
+        verticalLayout_8->addWidget(btn_existingpatient);
 
 
         verticalLayout->addWidget(wdgt_user);
@@ -271,9 +291,9 @@ public:
         lbl_currentusername->setText(QString());
         lnedt_username->setPlaceholderText(QApplication::translate("MainWindow", "Username", 0));
         lnedt_password->setPlaceholderText(QApplication::translate("MainWindow", "Password", 0));
-        btn_login->setText(QApplication::translate("MainWindow", "login", 0));
-        btn_newuser->setText(QApplication::translate("MainWindow", "New Patient", 0));
-        btn_existinguser->setText(QApplication::translate("MainWindow", "Existing Patient", 0));
+        btn_login->setText(QApplication::translate("MainWindow", "Admin Login", 0));
+        btn_newpatient->setText(QApplication::translate("MainWindow", "New Patient", 0));
+        btn_existingpatient->setText(QApplication::translate("MainWindow", "Existing Patient", 0));
         btn_adminpanel->setText(QApplication::translate("MainWindow", "Admin Panel", 0));
     } // retranslateUi
 

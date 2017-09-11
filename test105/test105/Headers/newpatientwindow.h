@@ -4,8 +4,10 @@
 #include <QMainWindow>
 #include "Headers/mainwindow.h"
 #include "Headers/dao.h"
+#include "Headers/test.h"
 
 class MainWindow;
+class test;
 
 namespace Ui {
 class NewPatientWindow;
@@ -18,6 +20,11 @@ class NewPatientWindow : public QMainWindow
 public:
     explicit NewPatientWindow(MainWindow *parent = 0); //QWidget
     ~NewPatientWindow();
+
+    MainWindow* mainwindow;
+    bool ok; // to decide whether the close action caised by ok or close button
+    Patient patient;
+
 
 private slots:
     void on_btn_reset_clicked();
@@ -39,7 +46,7 @@ private slots:
 
     void on_btn_deletedepartment_clicked();
 
-    void on_dateEdit_dob_editingFinished();
+    void on_lnedt_year_editingFinished();
 
 private:
     void closeEvent(QCloseEvent *event);
@@ -48,7 +55,7 @@ private:
     QString status;
     Dao* dao;
     Account currentuser;
-    MainWindow* mainwindow;
+    test *t;
 };
 
 #endif // NEWPATIENTWINDOW_H
