@@ -3,11 +3,13 @@
 
 #include <QMainWindow>
 #include "Headers/dao.h"
-#include "Headers/newuserwindow.h"
-#include "Headers/existinguserwindow.h"
+#include "Headers/newpatientwindow.h"
+#include "Headers/existingpatientwindow.h"
+#include "Headers/adminpanelwindow.h"
 
-class NewUserWindow;
-class ExistingUserWindow;
+class NewPatientWindow;
+class ExistingPatientWindow;
+class AdminPanelWindow;
 
 namespace Ui {
 class MainWindow;
@@ -32,11 +34,14 @@ private slots:
 
     void on_btn_existinguser_clicked();
 
+    void on_btn_adminpanel_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString status;
-    NewUserWindow* wndw_newuser;
-    ExistingUserWindow* wndw_exisitinguser;
+    NewPatientWindow* wndw_newuser;
+    ExistingPatientWindow* wndw_exisitinguser;
+    AdminPanelWindow* wndw_adminpanel;
 
     void onlogin();
     void onlogout();

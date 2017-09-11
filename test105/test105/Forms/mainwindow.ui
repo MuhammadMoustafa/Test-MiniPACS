@@ -165,14 +165,14 @@
               <item>
                <widget class="QPushButton" name="btn_newuser">
                 <property name="text">
-                 <string>New User</string>
+                 <string>New Patient</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="btn_existinguser">
                 <property name="text">
-                 <string>Existing User</string>
+                 <string>Existing Patient</string>
                 </property>
                </widget>
               </item>

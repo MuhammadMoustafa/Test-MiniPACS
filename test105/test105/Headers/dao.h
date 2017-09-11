@@ -24,6 +24,11 @@ public:
     void insertDepartment(QString name, QString &status);
     void insertExamtype(QString name, QString &status);
 
+    void deletePhysician(QString name, QString &status);
+    void deleteRefPhysician(QString name, QString &status);
+    void deleteDepartment(QString name, QString &status);
+    void deleteExamtype(QString name, QString &status);
+
     QSqlTableModel* selectPatient(QString id, QString& status);
 
 private:

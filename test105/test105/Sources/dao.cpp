@@ -268,3 +268,79 @@ void Dao::insertExamtype(QString type, QString &status)
         status = "Exam Type Inserted Successfully";
     }
 }
+
+void Dao::deletePhysician(QString name, QString &status)
+{
+    QString qry = "DELETE FROM PHYSICIAN WHERE name = :name";
+
+
+    QSqlQuery query(db);
+    query.prepare(qry);
+
+    query.bindValue(":name", name);
+
+    if(! query.exec() ){
+        status = query.lastError().text();
+        //status = "This Physican Name is Already Existing";
+    }
+    else{
+        status = "Physician Deleted Successfully";
+    }
+}
+
+void Dao::deleteRefPhysician(QString name, QString &status)
+{
+    QString qry = "DELETE FROM REFPHYSICIAN WHERE name = :name";
+
+
+    QSqlQuery query(db);
+    query.prepare(qry);
+
+    query.bindValue(":name", name);
+
+    if(! query.exec() ){
+        status = query.lastError().text();
+        //status = "This Physican Name is Already Existing";
+    }
+    else{
+        status = "Ref. Physician Deleted Successfully";
+    }
+}
+
+void Dao::deleteDepartment(QString name, QString &status)
+{
+    QString qry = "DELETE FROM DEPARTMENT WHERE name = :name";
+
+
+    QSqlQuery query(db);
+    query.prepare(qry);
+
+    query.bindValue(":name", name);
+
+    if(! query.exec() ){
+        status = query.lastError().text();
+        //status = "This Physican Name is Already Existing";
+    }
+    else{
+        status = "Department Deleted Successfully";
+    }
+}
+
+void Dao::deleteExamtype(QString type, QString &status)
+{
+    QString qry = "DELETE FROM EXAMTYPE WHERE type = :type";
+
+
+    QSqlQuery query(db);
+    query.prepare(qry);
+
+    query.bindValue(":type", type);
+
+    if(! query.exec() ){
+        status = query.lastError().text();
+        //status = "This Physican Name is Already Existing";
+    }
+    else{
+        status = "Exam type Deleted Successfully";
+    }
+}

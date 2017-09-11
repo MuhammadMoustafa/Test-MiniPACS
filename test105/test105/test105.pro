@@ -8,7 +8,7 @@ QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = test104
+TARGET = test105
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -31,8 +31,9 @@ SOURCES += \
     Sources/visit.cpp \
     Sources/image.cpp \
     Sources/account.cpp \
-    Sources/newuserwindow.cpp \
-    Sources/existinguserwindow.cpp
+    Sources/existingpatientwindow.cpp \
+    Sources/newpatientwindow.cpp \
+    Sources/adminpanelwindow.cpp
 
 
 HEADERS += \
@@ -42,10 +43,15 @@ HEADERS += \
     Headers/image.h \
     Headers/visit.h \
     Headers/account.h \
-    Headers/newuserwindow.h \
-    Headers/existinguserwindow.h
+    Headers/existingpatientwindow.h \
+    Headers/newpatientwindow.h \
+    Headers/adminpanelwindow.h
 
 FORMS += \
-        mainwindow.ui \
-    Forms/newuserwindow.ui \
-    Forms/existinguserwindow.ui
+    Forms/mainwindow.ui \
+    Forms/existingpatientwindow.ui \
+    Forms/newpatientwindow.ui \
+    Forms/adminpanelwindow.ui
+
+DISTFILES += \
+    ToDo

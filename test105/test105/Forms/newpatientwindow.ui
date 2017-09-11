@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NewUserWindow</class>
- <widget class="QMainWindow" name="NewUserWindow">
+ <class>NewPatientWindow</class>
+ <widget class="QMainWindow" name="NewPatientWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -159,14 +159,14 @@
           <item row="3" column="0">
            <widget class="QRadioButton" name="rdbtn_male">
             <property name="text">
-             <string>&amp;Male</string>
+             <string>Male</string>
             </property>
            </widget>
           </item>
           <item row="3" column="1">
            <widget class="QRadioButton" name="rdbtn_female">
             <property name="text">
-             <string>&amp;Female</string>
+             <string>Female</string>
             </property>
            </widget>
           </item>
@@ -211,71 +211,102 @@
           <property name="rightMargin">
            <number>0</number>
           </property>
-          <item row="0" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_7">
-            <item>
-             <widget class="QLabel" name="lbl_physician">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Physician</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="lbl_refphysician">
-              <property name="text">
-               <string>Ref. Physician</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="lbl_department">
-              <property name="text">
-               <string>Department</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="1">
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <widget class="QComboBox" name="cmbox_physician"/>
-            </item>
-            <item>
-             <widget class="QComboBox" name="cmbox_refphysician"/>
-            </item>
-            <item>
-             <widget class="QComboBox" name="cmbox_department"/>
-            </item>
-           </layout>
-          </item>
           <item row="0" column="3">
-           <widget class="QWidget" name="wdgt_admin" native="true">
+           <widget class="QWidget" name="wdgt_user" native="true">
             <layout class="QVBoxLayout" name="verticalLayout_6">
              <item>
-              <widget class="QPushButton" name="btn_editphysician">
+              <widget class="QPushButton" name="btn_addphysician">
                <property name="text">
                 <string>Add</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_editrefphysician">
+              <widget class="QPushButton" name="btn_addrefphysician">
                <property name="text">
                 <string>Add</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_editdepartment">
+              <widget class="QPushButton" name="btn_adddepartment">
                <property name="text">
                 <string>Add</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QWidget" name="wdgt_admin" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_11">
+             <item>
+              <widget class="QPushButton" name="btn_deletephysician">
+               <property name="text">
+                <string>Delete</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_deleterefphysician">
+               <property name="text">
+                <string>Delete</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_deletedepartment">
+               <property name="text">
+                <string>Delete</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QWidget" name="wdgt_cmbox" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QComboBox" name="cmbox_physician"/>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cmbox_refphysician"/>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cmbox_department"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QWidget" name="wdgt_lbl" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <item>
+              <widget class="QLabel" name="lbl_physician">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Physician</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbl_refphysician">
+               <property name="text">
+                <string>Ref. Physician</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbl_department">
+               <property name="text">
+                <string>Department</string>
                </property>
               </widget>
              </item>
@@ -368,7 +399,14 @@
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>lnedt_firstname</tabstop>
@@ -380,11 +418,11 @@
   <tabstop>dateEdit_dob</tabstop>
   <tabstop>cmbox_examtype</tabstop>
   <tabstop>cmbox_physician</tabstop>
-  <tabstop>btn_editphysician</tabstop>
+  <tabstop>btn_addphysician</tabstop>
   <tabstop>cmbox_refphysician</tabstop>
-  <tabstop>btn_editrefphysician</tabstop>
+  <tabstop>btn_addrefphysician</tabstop>
   <tabstop>cmbox_department</tabstop>
-  <tabstop>btn_editdepartment</tabstop>
+  <tabstop>btn_adddepartment</tabstop>
   <tabstop>btn_ok</tabstop>
   <tabstop>btn_reset</tabstop>
  </tabstops>

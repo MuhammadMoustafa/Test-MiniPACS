@@ -1,9 +1,9 @@
-#include "Headers/existinguserwindow.h"
-#include "ui_existinguserwindow.h"
+#include "Headers/existingpatientwindow.h"
+#include "ui_existingpatientwindow.h"
 
-ExistingUserWindow::ExistingUserWindow(MainWindow *parent) :
+ExistingPatientWindow::ExistingPatientWindow(MainWindow *parent) :
     QMainWindow(parent),
-    ui(new Ui::ExistingUserWindow)
+    ui(new Ui::ExistingPatientWindow)
 {
     ui->setupUi(this);
     this->dao = parent->dao;
@@ -13,19 +13,19 @@ ExistingUserWindow::ExistingUserWindow(MainWindow *parent) :
 
 }
 
-void ExistingUserWindow::closeEvent(QCloseEvent *event)
+void ExistingPatientWindow::closeEvent(QCloseEvent *event)
 {
     mainwindow->show();
 }
 
 
-void ExistingUserWindow::on_btn_Search_clicked()
+void ExistingPatientWindow::on_btn_Search_clicked()
 {
     ui->tableView->setModel(dao->selectPatient(ui->lineEdit->text(),status));
     ui->statusbar->showMessage(status);
 }
 
-ExistingUserWindow::~ExistingUserWindow()
+ExistingPatientWindow::~ExistingPatientWindow()
 {
     delete ui;
 }

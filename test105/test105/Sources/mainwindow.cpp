@@ -84,7 +84,7 @@ void MainWindow::on_btn_login_clicked()
 
 void MainWindow::on_btn_newuser_clicked()
 {
-    wndw_newuser = new NewUserWindow(this);
+    wndw_newuser = new NewPatientWindow(this);
     wndw_newuser->show();
 }
 
@@ -92,7 +92,7 @@ void MainWindow::on_btn_newuser_clicked()
 
 void MainWindow::on_btn_existinguser_clicked()
 {
-    wndw_exisitinguser = new ExistingUserWindow(this);
+    wndw_exisitinguser = new ExistingPatientWindow(this);
     wndw_exisitinguser->show();
 }
 
@@ -100,4 +100,10 @@ MainWindow::~MainWindow()
 {
     delete dao;
     delete ui;
+}
+
+void MainWindow::on_btn_adminpanel_clicked()
+{
+    wndw_adminpanel = new AdminPanelWindow(this);
+    wndw_adminpanel->show();
 }
